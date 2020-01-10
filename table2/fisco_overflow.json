@@ -1,0 +1,26 @@
+{
+ "vulnerabilities": {
+  "reentrancy": [], 
+  "prng_bug": [], 
+  "tod_bug": [], 
+  "dos_bug": [], 
+  "integer_overflow": [
+   {
+    "bug_abstract": "753:ADD:Integer Overflow", 
+    "bug_test_case": "{'callReturn': {}, 'input': {'Id_0_15': '76450787359836037641860180984291677749980919077056822294353438043884394381312', 'Id_amount': '93197768905015291022582589378728101771372192484987306756342212446393647927717', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_9_1871-from_asset_value_1876': '40517734865665682103624446881471114508005968927831311829973926242952344820941', 'Iv': '0', 'Ia_store-some_var_8_1716-to_asset_value_1717': '93197768905015291022582589378728101771372192484987306756342212446393647927717'}, 'other': {}, 'block': {}}", 
+    "bug_cfg": "./tmp/tmp/1.png", 
+    "bug_line": "139:58: Warning: entry1.set('asset_value', int256(to_asset_value + amount));"
+   }
+  ], 
+  "integer_underflow": [
+   {
+    "bug_abstract": "621:SUB:Integer Underflow", 
+    "bug_test_case": "{'callReturn': {}, 'input': {'Id_0_15': '74301149977583154961863820173841982574387150310566360623589186892333265715200', 'Id_size_7': '4', 'Id_amount': '1'}, 'state': {'Ia_store-some_var_9_1871-from_asset_value_1876': '40517734865665682103624446881471114508005968927831311829973926242952344820941', 'Ia_store-some_var_1_528-to_asset_value_627': '0', 'Iv': '0'}, 'other': {}, 'block': {}}", 
+    "bug_cfg": "./tmp/tmp/2.png", 
+    "bug_line": "134:58: Warning: entry0.set('asset_value', int256(from_asset_value - amount));"
+   }
+  ]
+ }, 
+ "run_time": "5.12s", 
+ "evm_code_coverage": "99.1"
+}

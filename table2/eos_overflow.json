@@ -1,0 +1,18 @@
+{
+ "vulnerabilities": {
+  "reentrancy": [], 
+  "prng_bug": [], 
+  "tod_bug": [], 
+  "dos_bug": [], 
+  "integer_overflow": [
+   {
+    "bug_abstract": "753:ADD:Integer Overflow", 
+    "bug_test_case": "{'callReturn': {}, 'input': {'Id_0_15': '4328949389082671399160233041736567249532595222386802791874445679178297638912', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-some_var_7': '97982550486736466870300356911301161186398988852778176975333035981688191048368', 'Iv': '0'}, 'other': {}, 'block': {}}", 
+    "bug_cfg": "./tmp/tmp/1.png", 
+    "bug_line": "12:19: Warning:   quantity.amount += itr->balance;"
+   }
+  ]
+ }, 
+ "run_time": "1.33s", 
+ "wasm_code_coverage": "99.9"
+}

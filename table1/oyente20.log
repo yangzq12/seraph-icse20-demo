@@ -1,0 +1,703 @@
+nohup: ignoring input
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/overflow_simple_add_fixed.sol:Overflow_Add:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.3%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/list_dos.sol:CrowdFundBad:
+INFO:symExec:	============ Results ===========
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+INFO:symExec:	  EVM Code Coverage: 			 96.2%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/list_dos.sol:9:9: Warning: Integer Overflow.
+        refundAddresses[i]
+Integer Overflow occurs if:
+    refundAddresses.length = 348449143727040986586495598010130648530944
+    refundAmount[refundAddresses[i]] = 57896044618658097711785492504343953926634992332820282019728792003956564819968
+INFO:symExec:	====== Analysis Completed ======
+INFO:root:contract ../../icpc/cases/list_dos.sol:CrowdFundPull:
+INFO:symExec:	============ Results ===========
+INFO:symExec:   EVM Code Coverage:       99.0%
+INFO:symExec:   Integer Underflow:       False
+INFO:symExec:   Integer Overflow:        False
+INFO:symExec:   Parity Multisig Bug 2:     False
+INFO:symExec:   Callstack Depth Attack Vulnerability:  False
+INFO:symExec:   Transaction-Ordering Dependence (TOD): False
+INFO:symExec:   Timestamp Dependency:      False
+INFO:symExec:   Re-Entrancy Vulnerability:     False
+INFO:symExec: ====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_mul.sol:IntegerOverflowMul:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.2%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+IOERROR
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/simple_dao.sol:SimpleDAO:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.0%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 True
+INFO:symExec:../../icpc/cases/simple_dao.sol:11:5: Warning: Integer Overflow.
+    credit[to] += msg.value
+Integer Overflow occurs if:
+    credit[to] = 1
+INFO:symExec:../../icpc/cases/simple_dao.sol:16:15: Warning: Re-Entrancy Vulnerability.
+      require(msg.sender.call.value(amount)()
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/dos_number.sol:DosNumber:
+INFO:symExec:	============ Results ===========
+find: ‘python’ terminated by signal 11
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_mapping_sym_1.sol:IntegerOverflowMappingSym1:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.0%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/integer_overflow_mapping_sym_1.sol:9:9: Warning: Integer Underflow.
+        map[k] -= v
+Integer Underflow occurs if:
+    map[k] = 0
+    v = 1
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/old_blockhash.sol:PredictTheBlockHashChallenge:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 97.6%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/old_blockhash.sol:23:38: Warning: Integer Overflow.
+        guesses[msg.sender].block  = block.number + 1
+Integer Overflow occurs if:
+    guesses[msg.sender].block = 0
+../../icpc/cases/old_blockhash.sol:32:13: Warning: Integer Overflow.
+        if (guesses[msg.sender].guess
+Integer Overflow occurs if:
+    guesses[msg.sender].block = 0
+../../icpc/cases/old_blockhash.sol:22:9: Warning: Integer Overflow.
+        guesses[msg.sender].guess
+Integer Overflow occurs if:
+    guesses[msg.sender].block = 0
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/old_blockhash_fixed.sol:PredictTheBlockHashChallenge:
+INFO:symExec:	============ Results ===========
+find: ‘python’ terminated by signal 11
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_minimal_fixed.sol:IntegerOverflowMinimal:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.3%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_multitx_onefunc_feasible_fixed.sol:IntegerOverflowMultiTxOneFuncFeasible:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.4%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_multitx_multifunc_feasible_fixed.sol:IntegerOverflowMultiTxMultiFuncFeasible:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.5%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/guess_the_random_number.sol:GuessTheRandomNumberChallenge:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 95.7%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/SpankChain.sol:HumanStandardToken:
+INFO:symExec:	============ Results ===========
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+INFO:symExec:	  EVM Code Coverage: 			 63.3%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/SpankChain.sol:129:5: Warning: Integer Underflow.
+    string public version = 'H0.1'
+../../icpc/cases/SpankChain.sol:128:5: Warning: Integer Underflow.
+    string public symbol
+../../icpc/cases/SpankChain.sol:126:5: Warning: Integer Underflow.
+    string public name
+INFO:symExec:../../icpc/cases/SpankChain.sol:70:9: Warning: Integer Overflow.
+        balances[_to] += _value
+Integer Overflow occurs if:
+    balances[_to] = 14601942356520462858496936809946562046717706384838095886212653216666976520199
+    balances[msg.sender] = 101657589220531275995208313426037035932169046309425894351613054913414326913025
+../../icpc/cases/SpankChain.sol:145:5: Warning: Integer Overflow.
+    function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+    ^
+Spanning multiple lines.
+Integer Overflow occurs if:
+    _extraData = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+../../icpc/cases/SpankChain.sol:79:9: Warning: Integer Overflow.
+        balances[_to] += _value
+Integer Overflow occurs if:
+    balances[_to] = 61521715760821823707449414493272175084174419985614842806059857840821147903498
+    allowed[_from][msg.sender] = 58143464461450361590429350640125021887584822466521526845158944083076012056598
+    balances[_from] = 58143464461450361590429350640125021887584822466521526845158944083076012056598
+INFO:symExec:	====== Analysis Completed ======
+INFO:root:contract ../../icpc/cases/SpankChain.sol:StandardToken:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.9%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/SpankChain.sol:70:9: Warning: Integer Overflow.
+        balances[_to] += _value
+Integer Overflow occurs if:
+    balances[_to] = 84256961908703823994029769963647978717960787081598885242017652820247022669822
+    balances[msg.sender] = 51857843871619755915888139390102831028484687145916622802145877150017657504814
+../../icpc/cases/SpankChain.sol:79:9: Warning: Integer Overflow.
+        balances[_to] += _value
+Integer Overflow occurs if:
+    balances[_to] = 61967413406613682802979124510271574765308724232724710050015944577473249837393
+    allowed[_from][msg.sender] = 61967192469850738297333339894031107254902981826981483087870918608937560344261
+    balances[_from] = 61967192469850738297333339894031107254902981826981483087870918608937560344261
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_multitx_onefunc_infeasible.sol:IntegerOverflowMultiTxOneFuncInfeasible:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.2%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/integer_overflow_multitx_onefunc_infeasible.sol:20:9: Warning: Integer Underflow.
+        count -= input
+Integer Underflow occurs if:
+    input = 1
+    initialized = 1
+    count = 0
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_multitx_multifunc_feasible.sol:IntegerOverflowMultiTxMultiFuncFeasible:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.4%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/integer_overflow_multitx_multifunc_feasible.sol:24:9: Warning: Integer Underflow.
+        count -= input
+Integer Underflow occurs if:
+    input = 1
+    initialized = 1
+    count = 0
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/auction.sol:DosAuction:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 97.1%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+INFO:root:contract ../../icpc/cases/auction.sol:SecureAuction:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.6%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/auction.sol:37:7: Warning: Integer Overflow.
+      refunds[currentFrontrunner] += currentBid
+Integer Overflow occurs if:
+    currentBid = 57896044618658097711785491007766277299616906088867486784694595312010407882700
+    refunds[currentFrontrunner] = 115792089237316195423570985008687907852803769628786859138913824521415600810012
+    currentFrontrunner = 1461501637330902918203684832716283019655932542975
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+incomplete push instruction at 26234
+INFO:root:contract ../../icpc/cases/DAO.sol:TokenCreation:
+INFO:symExec:	============ Results ===========
+INFO:symExec:   EVM Code Coverage:       99.0%
+INFO:symExec:   Integer Underflow:       False
+INFO:symExec:   Integer Overflow:        True
+INFO:symExec:   Parity Multisig Bug 2:     False
+INFO:symExec:   Callstack Depth Attack Vulnerability:  False
+INFO:symExec:   Transaction-Ordering Dependence (TOD): False
+INFO:symExec:   Timestamp Dependency:      False
+INFO:symExec:   Re-Entrancy Vulnerability:     True
+INFO:symExec:../../icpc/cases/DAO.sol:326:17: Warning: Re-Entrancy Vulnerability.
+            if (msg.sender.call.value(weiGiven[msg.sender])()
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_multitx_onefunc_feasible.sol:IntegerOverflowMultiTxOneFuncFeasible:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.3%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/integer_overflow_multitx_onefunc_feasible.sol:21:9: Warning: Integer Underflow.
+        count -= input
+Integer Underflow occurs if:
+    input = 1
+    initialized = 1
+    count = 0
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/simple_dao_fixed.sol:SimpleDAO:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.0%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/simple_dao_fixed.sol:11:5: Warning: Integer Overflow.
+    credit[to] += msg.value
+Integer Overflow occurs if:
+    credit[to] = 1
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/overflow_simple_add.sol:Overflow_Add:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 90.1%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/dos_simple.sol:DosOneFunc:
+INFO:symExec:	============ Results ===========
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+INFO:symExec:	  EVM Code Coverage: 			 79.0%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/dos_simple.sol:3:1: Warning: Integer Overflow.
+contract DosOneFunc {
+^
+Spanning multiple lines.
+Integer Overflow occurs if:
+    listAddresses.length = 1725436594732729616994265519702576975304127859736409939860637595206913
+../../icpc/cases/dos_simple.sol:11:17: Warning: Integer Overflow.
+                listAddresses.push(msg.sender)
+Integer Overflow occurs if:
+    listAddresses.length = 1407
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_1.sol:Overflow:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 82.5%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+IOERROR
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/theRun.sol:theRun:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 56.2%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  True
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): True
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/theRun.sol:127:9: Warning: Integer Underflow.
+        feeFrac-=1
+Integer Underflow occurs if:
+    fees = 57896044618658097711785492504343953926634992332820282019728792003956564819968
+    feeFrac = 0
+    admin = 0
+../../icpc/cases/theRun.sol:132:24: Warning: Integer Underflow.
+        if (fees == 0) feeFrac-=1
+Integer Underflow occurs if:
+    feeFrac = 0
+    fees = 0
+    admin = 0
+../../icpc/cases/theRun.sol:169:17: Warning: Integer Underflow.
+    QueueSize = players.length - Payout_id
+Integer Underflow occurs if:
+    players.length = 0
+    Payout_id = 1
+INFO:symExec:../../icpc/cases/theRun.sol:162:19: Warning: Integer Overflow.
+        Address = players[id]
+Integer Overflow occurs if:
+    id = 67108863
+    players.length = 115792089237316195423570985008687907851908855197956810185604085578185788358656
+../../icpc/cases/theRun.sol:163:18: Warning: Integer Overflow.
+        Payout = players[id].payout
+Integer Overflow occurs if:
+    id = 67108863
+    players.length = 115792089237316195423570985008687907851908855197956810185604085578185788358656
+../../icpc/cases/theRun.sol:164:18: Warning: Integer Overflow.
+        UserPaid=players[id].paid
+Integer Overflow occurs if:
+    id = 67108863
+    players.length = 115792089237316195423570985008687907851908855197956810185604085578185788358656
+../../icpc/cases/theRun.sol:140:18: Warning: Integer Overflow.
+    NextPayout = players[Payout_id].payout
+Integer Overflow occurs if:
+    Payout_id = 0
+    players[Payout_id] = 1
+../../icpc/cases/theRun.sol:164:18: Warning: Integer Overflow.
+        UserPaid=players[id]
+Integer Overflow occurs if:
+    id = 67108863
+    players.length = 115792089237316195423570985008687907851908855197956810185604085578185788358656
+../../icpc/cases/theRun.sol:140:18: Warning: Integer Overflow.
+    NextPayout = players[Payout_id]
+Integer Overflow occurs if:
+    Payout_id = 1
+    players[Payout_id] = 2
+../../icpc/cases/theRun.sol:163:18: Warning: Integer Overflow.
+        Payout = players[id]
+Integer Overflow occurs if:
+    id = 67108863
+    players.length = 115792089237316195423570985008687907851908855197956810185604085578185788358656
+INFO:symExec:../../icpc/cases/theRun.sol:86:21: Warning: Callstack Depth Attack Vulnerability.
+                    players[Payout_id].addr.send(Last_Payout)
+../../icpc/cases/theRun.sol:133:9: Warning: Callstack Depth Attack Vulnerability.
+        admin.send(fees / 1000 * p)
+../../icpc/cases/theRun.sol:46:21: Warning: Callstack Depth Attack Vulnerability.
+                    msg.sender.send(msg.value- (20 ether))
+../../icpc/cases/theRun.sol:77:25: Warning: Callstack Depth Attack Vulnerability.
+                        msg.sender.send(WinningPot)
+../../icpc/cases/theRun.sol:126:9: Warning: Callstack Depth Attack Vulnerability.
+        admin.send(fees)
+INFO:symExec:Flow1
+../../icpc/cases/theRun.sol:42:21: Warning: Transaction-Ordering Dependency.
+                    msg.sender.send(msg.value)
+Flow2
+../../icpc/cases/theRun.sol:126:9: Warning: Transaction-Ordering Dependency.
+        admin.send(fees)
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+encoding/hex: invalid byte: U+005F '_'
+INFO:root:contract ../../icpc/cases/SpankChain_Payment.sol:ECTools:
+INFO:symExec:	============ Results ===========
+find: ‘python’ terminated by signal 11
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/sendloop.sol:Refunder:
+INFO:symExec:	============ Results ===========
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+INFO:symExec:	  EVM Code Coverage: 			 97.6%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/sendloop.sol:22:21: Warning: Integer Overflow.
+            require(refundAddresses[x]
+Integer Overflow occurs if:
+    refundAddresses.length = 348449143727040986586495598010130648530944
+    refunds[refundAddresses[x]] = 57896044618658097711785492504343953926634992332820282019728792003956564819968
+INFO:symExec:	====== Analysis Completed ======
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+Exception z3.z3types.Z3Exception: Z3Exception() in <object repr() failed> ignored
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/modifier_reentrancy.sol:Bank:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 86.6%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/modifier_reentrancy.sol:26:16: Warning: Integer Underflow.
+        return(keccak256(abi.encodePacked("Nu Token"))
+INFO:symExec:../../icpc/cases/modifier_reentrancy.sol:25:5: Warning: Integer Overflow.
+    function supportsToken() external pure returns(bytes32){
+    ^
+Spanning multiple lines.
+INFO:symExec:	====== Analysis Completed ======
+INFO:root:contract ../../icpc/cases/modifier_reentrancy.sol:ModifierEntrancy:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 53.7%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/guess_the_random_number_fixed.sol:GuessTheRandomNumberChallenge:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 61.3%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/dos_address.sol:DosGas:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 64.1%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/dos_address.sol:17:11: Warning: Integer Underflow.
+          creditorAddresses.push(msg.sender)
+INFO:symExec:../../icpc/cases/dos_address.sol:1:24: Warning: Integer Overflow.
+
+../../icpc/cases/dos_address.sol:17:11: Warning: Integer Overflow.
+          creditorAddresses.push(msg.sender)
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/random_number_generator.sol:RandomNumberGenerator:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 100.0%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_mul_fixed.sol:IntegerOverflowMul:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 98.8%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/modifier_reentrancy_fixed.sol:Bank:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 86.6%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/modifier_reentrancy_fixed.sol:26:16: Warning: Integer Underflow.
+        return(keccak256(abi.encodePacked("Nu Token"))
+INFO:symExec:../../icpc/cases/modifier_reentrancy_fixed.sol:25:5: Warning: Integer Overflow.
+    function supportsToken() external pure returns(bytes32){
+    ^
+Spanning multiple lines.
+INFO:symExec:	====== Analysis Completed ======
+INFO:root:contract ../../icpc/cases/modifier_reentrancy_fixed.sol:ModifierEntrancy:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 92.5%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_minimal.sol:IntegerOverflowMinimal:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.2%
+INFO:symExec:	  Integer Underflow: 			 True
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:../../icpc/cases/integer_overflow_minimal.sol:10:9: Warning: Integer Underflow.
+        count -= input
+Integer Underflow occurs if:
+    input = 1
+    count = 0
+INFO:symExec:	====== Analysis Completed ======
+WARNING:root:You are using an untested version of z3. 4.5.1 is the officially tested version
+WARNING:root:You are using evm version 1.8.16. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.24, The latest supported version is 0.4.19
+INFO:root:contract ../../icpc/cases/integer_overflow_mapping_sym_1_fixed.sol:IntegerOverflowMappingSym1:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 99.3%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 False
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:	====== Analysis Completed ======

@@ -1,0 +1,1008 @@
+The analysis was completed successfully. No issues were detected.
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ECTools
+Function name: isSignedBy(bytes32,string,address)
+PC address: 205
+Estimated Gas Usage: 1364 - 7099
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:85
+
+function isSignedBy(bytes32 _hashedMsg, string _sig, address _addr) public pure returns (bool) {
+        require(_addr != 0x0);
+
+        return _addr == recoverSigner(_hashedMsg, _sig);
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40005000000270646, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1000000040200fe05, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [SOMEGUY], function: isSignedBy(bytes32,string,address), txdata: 0x1052506f0101010101010101010101010101010101010101010101010101010101010101fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc01010101010101010101010101, value: 0x0
+
+==== Potential denial-of-service if block gas limit is reached ====
+SWC ID: 128
+Severity: Low
+Contract: HumanStandardToken
+Function name: constructor
+PC address: 312
+Estimated Gas Usage: 27998 - 132698
+Potential denial-of-service if block gas limit is reached.
+A storage modification is executed in a loop. Be aware that the transaction may fail to execute if the loop is unbounded and the necessary gas exceeds the block gas limit.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:242
+
+symbol = _tokenSymbol
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ECTools
+Function name: substring(string,uint256,uint256)
+PC address: 566
+Estimated Gas Usage: 1556 - 8934
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:161
+
+function substring(string _str, uint _startIndex, uint _endIndex) public pure returns (string) {
+        bytes memory strBytes = bytes(_str);
+        require(_startIndex <= _endIndex);
+        require(_startIndex >= 0);
+        require(_endIndex <= strBytes.length);
+
+        bytes memory result = new bytes(_endIndex - _startIndex);
+        for (uint i = _startIndex; i < _endIndex; i++) {
+            result[i - _startIndex] = strBytes[i];
+        }
+        return string(result);
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xa044c0000004000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: substring(string,uint256,uint256), txdata: 0x1dcd9b55fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd40fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe41, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ECTools
+Function name: parseInt16Char(string)
+PC address: 805
+Estimated Gas Usage: 844 - 4365
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:110
+
+function parseInt16Char(string _char) public pure returns (uint) {
+        bytes memory bresult = bytes(_char);
+        // bool decimals = false;
+        if ((bresult[0] >= 48) && (bresult[0] <= 57)) {
+            return uint(bresult[0]) - 48;
+        } else if ((bresult[0] >= 65) && (bresult[0] <= 70)) {
+            return uint(bresult[0]) - 55;
+        } else if ((bresult[0] >= 97) && (bresult[0] <= 102)) {
+            return uint(bresult[0]) - 87;
+        } else {
+            revert();
+        }
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x801, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2400000001004, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: parseInt16Char(string), txdata: 0x38b025b2ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdc, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ECTools
+Function name: recoverSigner(bytes32,string)
+PC address: 1198
+Estimated Gas Usage: 1357 - 7092
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:56
+
+function recoverSigner(bytes32 _hashedMsg, string _sig) public pure returns (address) {
+        require(_hashedMsg != 0x00);
+
+        // need this for test RPC
+        bytes memory prefix = "\x19Ethereum Signed Message:\n32";
+        bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, _hashedMsg));
+
+        if (bytes(_sig).length != 132) {
+            return 0x0;
+        }
+        bytes32 r;
+        bytes32 s;
+        uint8 v;
+        bytes memory sig = hexstrToBytes(substring(_sig, 2, 132));
+        assembly {
+            r := mload(add(sig, 32))
+            s := mload(add(sig, 64))
+            v := byte(0, mload(add(sig, 96)))
+        }
+        if (v < 27) {
+            v += 27;
+        }
+        if (v < 27 || v > 28) {
+            return 0x0;
+        }
+        return ecrecover(prefixedHash, v, r, s);
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000180000084002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [SOMEGUY], function: recoverSigner(bytes32,string), txdata: 0xdca954190001010101010101010101010101010101010101010101010101010101010101ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, value: 0x0
+
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: ECTools
+Function name: parseInt16Char(string)
+PC address: 2330
+Estimated Gas Usage: 484 - 3259
+A reachable exception has been detected.
+It is possible to trigger an exception (opcode 0xfe). Exceptions can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. Note that explicit `assert()` should only be used to check invariants. Use `require()` for regular input checking.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:113
+
+bresult[0]
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: parseInt16Char(string), txdata: 0x38b025b2, value: 0x0
+
+==== Potential denial-of-service if block gas limit is reached ====
+SWC ID: 128
+Severity: Low
+Contract: HumanStandardToken
+Function name: approveAndCall(address,uint256,bytes)
+PC address: 3753
+Estimated Gas Usage: 8003 - 33579
+Potential denial-of-service if block gas limit is reached.
+A message call is executed in a loop. Be aware that the transaction may fail to execute if the loop is unbounded and the necessary gas exceeds the block gas limit. This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: approveAndCall(address,uint256,bytes), txdata: 0xcae9ca510000000000000000000000000000000000000000000000000000000000000021, value: 0x0
+Caller: [CREATOR], function: approveAndCall(address,uint256,bytes), txdata: 0xcae9ca510000000000000000000000000000000000000000000000000000000000000021, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Medium
+Contract: HumanStandardToken
+Function name: approveAndCall(address,uint256,bytes)
+PC address: 3838
+Estimated Gas Usage: 8003 - 33579
+A call to a user-supplied address is executed.
+The callee address of an external message call can be set by the caller. Note that the callee can contain arbitrary code and may re-enter any function in this contract. Review the business logic carefully to prevent averse effects on the contract state.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:253
+
+_spender.call(bytes4(bytes32(keccak256("receiveApproval(address,uint256,address,bytes)"))), msg.sender, _value, this, _extraData)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c05420fefcd, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [ATTACKER], function: approveAndCall(address,uint256,bytes), txdata: 0xcae9ca510000000000000000000000000000000000000000000000000000000000000021, value: 0x0
+Caller: [ATTACKER], function: approveAndCall(address,uint256,bytes), txdata: 0xcae9ca51000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000000000000000000000080, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ECTools
+Function name: toEthereumSignedMessage(string)
+PC address: 5035
+Estimated Gas Usage: 2126 - 11949
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: cases_2//SpankChain_Payment.sol:153
+
+i--
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: toEthereumSignedMessage(string), txdata: 0xdae2145480, value: 0x0
+
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//sendloop.sol:7:1: Error: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.24;
+^---------------------^
+cases_2//sendloop.sol:16:30: Warning: This looks like an address but has an invalid checksum. If this is not used as an address, please prepend '00'. Correct checksummed address: '0x79B483371E87d664cd39491b5f06250165e4b185'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+        refundAddresses.push(0x79B483371E87d664cd39491b5F06250165e4b185);
+                             ^----------------------------------------^
+
+SolidityVersionMismatch: Try adding the option "--solv <version_number>"
+ 
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: IntegerOverflowMinimal
+Function name: run(uint256)
+PC address: 174
+Estimated Gas Usage: 5646 - 25741
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: cases_2//integer_overflow_minimal.sol:10
+
+count -= input
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: run(uint256), txdata: 0xa444f5e901, value: 0x0
+
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//DAO.sol:91:52: Error: Expected ';' but got '}'
+    modifier noEther() {if (msg.value > 0) throw; _}
+                                                   ^
+ 
+The analysis was completed successfully. No issues were detected.
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//modifier_reentrancy.sol:1:1: Error: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.5.0;
+^---------------------^
+
+SolidityVersionMismatch: Try adding the option "--solv 0.5.0"
+ 
+The analysis was completed successfully. No issues were detected.
+
+==== Potential denial-of-service if block gas limit is reached ====
+SWC ID: 128
+Severity: Low
+Contract: DosGas
+Function name: addCreditors()
+PC address: 408
+Estimated Gas Usage: 28274 - 129644
+Potential denial-of-service if block gas limit is reached.
+A storage modification is executed in a loop. Be aware that the transaction may fail to execute if the loop is unbounded and the necessary gas exceeds the block gas limit.
+--------------------
+In file: cases_2//dos_address.sol:16
+
+for(uint i=0;i<350;i++) {
+          creditorAddresses.push(msg.sender);
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: addCreditors(), txdata: 0x357785a5, value: 0x0
+
+
+==== Dependence on predictable environment variable ====
+SWC ID: 120
+Severity: Low
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 216
+Estimated Gas Usage: 7635 - 62676
+A control flow decision is made based on a predictable variable.
+The block.number environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: cases_2//old_blockhash.sol:27
+
+require(block.number > guesses[msg.sender].block)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c0502040004, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x23c35e0440000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 120
+Severity: Medium
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 442
+Estimated Gas Usage: 7635 - 62676
+A control flow decision is made based on a predictable variable.
+The block hash of a previous block is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: cases_2//old_blockhash.sol:32
+
+if (guesses[msg.sender].guess == answer) {
+            msg.sender.transfer(2 ether);
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x401c14c0542040004, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000440040000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 498
+Estimated Gas Usage: 6887 - 27928
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: cases_2//old_blockhash.sol:33
+
+msg.sender.transfer(2 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c0542040001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42000000000000001, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2007484c400bffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: lockInGuess(bytes32)
+PC address: 705
+Estimated Gas Usage: 10982 - 51647
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//old_blockhash.sol:23
+
+block.number + 1
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c05420c0001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [CREATOR], function: lockInGuess(bytes32), txdata: 0xed7f559c, value: 0xde0b6b3a7640000
+
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//theRun.sol:23:57: Error: Expected ';' but got '}'
+        modifier onlyowner {if (msg.sender == admin) _  }
+                                                        ^
+ 
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: GuessTheRandomNumberChallenge
+Function name: recover()
+PC address: 374
+Estimated Gas Usage: 16147 - 76902
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: cases_2//guess_the_random_number_fixed.sol:31
+
+block.number - 256
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c05420c0001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [CREATOR], function: guess(uint8), txdata: 0x4ba4c16b, value: 0xde0b6b3a7640000
+
+
+==== Potential denial-of-service if block gas limit is reached ====
+SWC ID: 128
+Severity: Low
+Contract: DosNumber
+Function name: insertNnumbers(uint256,uint256)
+PC address: 413
+Estimated Gas Usage: 48386 - 208766
+Potential denial-of-service if block gas limit is reached.
+A storage modification is executed in a loop. Be aware that the transaction may fail to execute if the loop is unbounded and the necessary gas exceeds the block gas limit.
+--------------------
+In file: cases_2//dos_number.sol:11
+
+for(uint i=0;i<numbers;i++) {
+            if(numElements == array.length) {
+                array.length += 1;
+            }
+            array[numElements++] = value;
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2180000000000011, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x20000000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x28000000000000002, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [SOMEGUY], function: insertNnumbers(uint256,uint256), txdata: 0x529f6f2d00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002, value: 0x0
+Caller: [ATTACKER], function: insertNnumbers(uint256,uint256), txdata: 0x529f6f2d000000000000000000000000000000000000000000000000000000000000000001, value: 0x0
+
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: Overflow
+Function name: add(uint256)
+PC address: 229
+Estimated Gas Usage: 5700 - 26076
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//integer_overflow_1.sol:7
+
+sellerBalance += value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4200000000003ff81, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x80080020084240, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [SOMEGUY], function: safe_add(uint256), txdata: 0x3e127e76e0, value: 0x0
+Caller: [SOMEGUY], function: add(uint256), txdata: 0x1003e2d220, value: 0x0
+
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: IntegerOverflowMappingSym1
+Function name: init(uint256,uint256)
+PC address: 145
+Estimated Gas Usage: 5731 - 26016
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: cases_2//integer_overflow_mapping_sym_1.sol:9
+
+map[k] -= v
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2800000014, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [SOMEGUY], function: init(uint256,uint256), txdata: 0xa5843f08000000000000000000000000000000000000000000000000000000000000000001, value: 0x0
+
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//list_dos.sol:9:7: Error: No matching declaration found after argument-dependent lookup.
+      require(refundAddresses[i].transfer(refundAmount[refundAddresses[i]]));
+      ^-----^
+ 
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//overflow_simple_add.sol:1:1: Error: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.24;
+^---------------------^
+
+SolidityVersionMismatch: Try adding the option "--solv 0.4.24"
+ 
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: IntegerOverflowMul
+Function name: run(uint256)
+PC address: 174
+Estimated Gas Usage: 5648 - 25743
+The binary multiplication can overflow.
+The operands of the multiplication operation are not sufficiently constrained. The multiplication could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//integer_overflow_mul.sol:10
+
+count *= input
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: run(uint256), txdata: 0xa444f5e980, value: 0x0
+
+
+The analysis was completed successfully. No issues were detected.
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//modifier_reentrancy_fixed.sol:1:1: Error: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.5.0;
+^---------------------^
+
+SolidityVersionMismatch: Try adding the option "--solv 0.5.0"
+ 
+The analysis was completed successfully. No issues were detected.
+
+The analysis was completed successfully. No issues were detected.
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: IntegerOverflowMultiTxMultiFuncFeasible
+Function name: run(uint256)
+PC address: 218
+Estimated Gas Usage: 6073 - 26168
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: cases_2//integer_overflow_multitx_multifunc_feasible.sol:24
+
+count -= input
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: init(), txdata: 0xe1c7392a, value: 0x0
+Caller: [CREATOR], function: run(uint256), txdata: 0xa444f5e901, value: 0x0
+
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//simple_dao_fixed.sol:6:1: Error: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.24;
+^---------------------^
+
+SolidityVersionMismatch: Try adding the option "--solv 0.4.24"
+ 
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: SecureAuction
+Function name: withdraw()
+PC address: 566
+Estimated Gas Usage: 6540 - 61201
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: cases_2//auction.sol:51
+
+msg.sender.send(refund)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: withdraw(), txdata: 0x3ccfd60b, value: 0x0
+Caller: [CREATOR], function: withdraw(), txdata: 0x3ccfd60b, value: 0x0
+
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//SpankChain.sol:5:1: Error: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.15;
+^---------------------^
+cases_2//SpankChain.sol:131:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function HumanStandardToken(
+    ^ (Relevant source part starts here and spans across multiple lines).
+cases_2//SpankChain.sol:71:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(msg.sender, _to, _value);
+        ^-------------------------------^
+cases_2//SpankChain.sol:82:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(_from, _to, _value);
+        ^--------------------------^
+cases_2//SpankChain.sol:92:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+cases_2//SpankChain.sol:147:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+cases_2//SpankChain.sol:152:46: Warning: "sha3" has been deprecated in favour of "keccak256"
+        require(_spender.call(bytes4(bytes32(sha3("receiveApproval(address,uint256,address,bytes)"))), msg.sender, _value, this, _extraData));
+                                             ^----------------------------------------------------^
+
+SolidityVersionMismatch: Try adding the option "--solv <version_number>"
+ 
+==== Potential denial-of-service if block gas limit is reached ====
+SWC ID: 128
+Severity: Low
+Contract: DosOneFunc
+Function name: ifillArray()
+PC address: 150
+Estimated Gas Usage: 28663 - 130033
+Potential denial-of-service if block gas limit is reached.
+A storage modification is executed in a loop. Be aware that the transaction may fail to execute if the loop is unbounded and the necessary gas exceeds the block gas limit.
+--------------------
+In file: cases_2//dos_simple.sol:10
+
+for(uint i=0;i<350;i++) {
+                listAddresses.push(msg.sender);
+            }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: ifillArray(), txdata: 0x20227db8, value: 0x0
+
+
+The analysis was completed successfully. No issues were detected.
+
+The analysis was completed successfully. No issues were detected.
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 211
+Estimated Gas Usage: 8178 - 63409
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//old_blockhash_fixed.sol:27
+
+guesses[msg.sender].block +10
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0xde2b732c0200001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1609841d201e0322, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: lockInGuess(bytes32), txdata: 0xed7f559c, value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 120
+Severity: Low
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 219
+Estimated Gas Usage: 8178 - 63409
+A control flow decision is made based on a predictable variable.
+The block.number environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: cases_2//old_blockhash_fixed.sol:27
+
+require(block.number > guesses[msg.sender].block +10)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c0542040002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000420040001, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 295
+Estimated Gas Usage: 8178 - 63409
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: cases_2//old_blockhash_fixed.sol:30
+
+guesses[msg.sender].block - block.number
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x20480c0000040204, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2000340106080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2244400800040000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 120
+Severity: Low
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 301
+Estimated Gas Usage: 8178 - 63409
+A control flow decision is made based on a predictable variable.
+The block.number environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: cases_2//old_blockhash_fixed.sol:30
+
+if(guesses[msg.sender].block - block.number < 256){
+          bytes32 answer = blockhash(guesses[msg.sender].block);
+
+          guesses[msg.sender].block = 0;
+          if (guesses[msg.sender].guess == answer) {
+              msg.sender.transfer(2 ether);
+          }
+        }
+        else{
+          revert("Sorry your lottery ticket has expired");
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c0542040002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000420040001, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 578
+Estimated Gas Usage: 7418 - 28649
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: cases_2//old_blockhash_fixed.sol:35
+
+msg.sender.transfer(2 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c0542040001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42000000000000001, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x16807464c400bc000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: lockInGuess(bytes32)
+PC address: 938
+Estimated Gas Usage: 10982 - 51647
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: cases_2//old_blockhash_fixed.sol:23
+
+block.number + 1
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c05420c0001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [CREATOR], function: lockInGuess(bytes32), txdata: 0xed7f559c, value: 0xde0b6b3a7640000
+
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: GuessTheRandomNumberChallenge
+Function name: guess(uint8)
+PC address: 269
+Estimated Gas Usage: 730 - 1341
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: cases_2//guess_the_random_number.sol:25
+
+msg.sender.transfer(2 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c10c0542040001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080440080001, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xb0752189006c7c5, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: guess(uint8), txdata: 0x4ba4c16b, value: 0xde0b6b3a7640000
+
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: IntegerOverflowMultiTxOneFuncFeasible
+Function name: run(uint256)
+PC address: 196
+Estimated Gas Usage: 6073 - 26168
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: cases_2//integer_overflow_multitx_onefunc_feasible.sol:21
+
+count -= input
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT CREATION], value: 0x0
+Caller: [CREATOR], function: run(uint256), txdata: 0xa444f5e9, value: 0x0
+Caller: [CREATOR], function: run(uint256), txdata: 0xa444f5e901, value: 0x0
+
+
+mythril.interfaces.cli [ERROR]: Solc has experienced a fatal error (code 1).
+
+cases_2//simple_dao.sol:6:1: Error: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.24;
+^---------------------^
+
+SolidityVersionMismatch: Try adding the option "--solv 0.4.24"
+ 

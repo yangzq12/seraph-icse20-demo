@@ -1,0 +1,2680 @@
+Processing contract: cases//random_number_generator.sol:RandomNumberGenerator
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//SpankChain_Payment.sol:ECTools
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//SpankChain_Payment.sol:HumanStandardToken
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//SpankChain_Payment.sol:LedgerChannel
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//SpankChain_Payment.sol:StandardToken
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//SpankChain_Payment.sol:Token
+[33mWarning[0m for LockedEther in contract 'ECTools':
+    |}
+    |
+  > |library ECTools {
+    |
+    |    // @dev Recovers the address which has signed a message
+  at cases//SpankChain_Payment.sol(52)
+
+[31mViolation[0m for MissingInputValidation in contract 'ECTools':
+    |    // @dev Converts a uint to a bytes32
+    |    // @thanks https://ethereum.stackexchange.com/questions/4170/how-to-convert-a-uint-to-bytes-in-solidity
+  > |    function uintToBytes32(uint _uint) public pure returns (bytes b) {
+    |        b = new bytes(32);
+    |        assembly {mstore(add(b, 32), _uint)}
+  at cases//SpankChain_Payment.sol(126)
+
+[33mWarning[0m for MissingInputValidation in contract 'ECTools':
+    |    // @dev Recovers the address which has signed a message
+    |    // @thanks https://gist.github.com/axic/5b33912c6f61ae6fd96d6c4a47afde6d
+  > |    function recoverSigner(bytes32 _hashedMsg, string _sig) public pure returns (address) {
+    |        require(_hashedMsg != 0x00);
+    |
+  at cases//SpankChain_Payment.sol(56)
+
+[33mWarning[0m for MissingInputValidation in contract 'ECTools':
+    |
+    |    // @dev Verifies if the message is signed by an address
+  > |    function isSignedBy(bytes32 _hashedMsg, string _sig, address _addr) public pure returns (bool) {
+    |        require(_addr != 0x0);
+    |
+  at cases//SpankChain_Payment.sol(85)
+
+[33mWarning[0m for MissingInputValidation in contract 'ECTools':
+    |
+    |    // @dev Converts a uint in a string
+  > |    function uintToString(uint _uint) public pure returns (string str) {
+    |        uint len = 0;
+    |        uint m = _uint + 0;
+  at cases//SpankChain_Payment.sol(141)
+
+[33mWarning[0m for MissingInputValidation in contract 'ECTools':
+    |    // @dev extract a substring
+    |    // @thanks https://ethereum.stackexchange.com/questions/31457/substring-in-solidity
+  > |    function substring(string _str, uint _startIndex, uint _endIndex) public pure returns (string) {
+    |        bytes memory strBytes = bytes(_str);
+    |        require(_startIndex <= _endIndex);
+  at cases//SpankChain_Payment.sol(161)
+
+[33mWarning[0m for TODAmount in contract 'ECTools':
+    |            return 0x0;
+    |        }
+  > |        return ecrecover(prefixedHash, v, r, s);
+    |    }
+    |
+  at cases//SpankChain_Payment.sol(81)
+
+[33mWarning[0m for TODReceiver in contract 'ECTools':
+    |            return 0x0;
+    |        }
+  > |        return ecrecover(prefixedHash, v, r, s);
+    |    }
+    |
+  at cases//SpankChain_Payment.sol(81)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ECTools':
+    |            return 0x0;
+    |        }
+  > |        return ecrecover(prefixedHash, v, r, s);
+    |    }
+    |
+  at cases//SpankChain_Payment.sol(81)
+
+[31mViolation[0m for LockedEther in contract 'HumanStandardToken':
+    |}
+    |
+  > |contract HumanStandardToken is StandardToken {
+    |
+    |    /* Public variables of the token */
+  at cases//SpankChain_Payment.sol(217)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |contract StandardToken is Token {
+    |
+  > |    function transfer(address _to, uint256 _value) public returns (bool success) {
+    |        //Default assumes totalSupply can't be over max (2^256 - 1).
+    |        //If your token leaves out totalSupply and can issue more tokens as time goes on, you need to check if it doesn't wrap.
+  at cases//SpankChain_Payment.sol(176)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+    |        //same as above. Replace this line with the following if you want to protect against wrapping uints.
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+  at cases//SpankChain_Payment.sol(188)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function balanceOf(address _owner) public constant returns (uint256 balance) {
+    |        return balances[_owner];
+    |    }
+  at cases//SpankChain_Payment.sol(199)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function approve(address _spender, uint256 _value) public returns (bool success) {
+    |        allowed[msg.sender][_spender] = _value;
+    |        emit Approval(msg.sender, _spender, _value);
+  at cases//SpankChain_Payment.sol(203)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function allowance(address _owner, address _spender) public constant returns (uint256 remaining) {
+    |      return allowed[_owner][_spender];
+    |    }
+  at cases//SpankChain_Payment.sol(209)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |
+    |    /* Approves and then calls the receiving contract */
+  > |    function approveAndCall(address _spender, uint256 _value, bytes _extraData) public returns (bool success) {
+    |        allowed[msg.sender][_spender] = _value;
+    |        emit Approval(msg.sender, _spender, _value);
+  at cases//SpankChain_Payment.sol(246)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HumanStandardToken':
+    |        require(balances[msg.sender] >= _value);
+    |        balances[msg.sender] -= _value;
+  > |        balances[_to] += _value;
+    |        emit Transfer(msg.sender, _to, _value);
+    |        return true;
+  at cases//SpankChain_Payment.sol(183)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HumanStandardToken':
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+  > |        balances[_to] += _value;
+    |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+  at cases//SpankChain_Payment.sol(192)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HumanStandardToken':
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+    |        balances[_to] += _value;
+  > |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+    |        emit Transfer(_from, _to, _value);
+  at cases//SpankChain_Payment.sol(193)
+
+[33mWarning[0m for DAOConstantGas in contract 'LedgerChannel':
+    |
+    |        if(Channels[_lcID].initialDeposit[0] != 0) {
+  > |            Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]);
+    |        } 
+    |        if(Channels[_lcID].initialDeposit[1] != 0) {
+  at cases//SpankChain_Payment.sol(419)
+
+[33mWarning[0m for DAOConstantGas in contract 'LedgerChannel':
+    |
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+  > |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+    |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+  at cases//SpankChain_Payment.sol(526)
+
+[33mWarning[0m for DAOConstantGas in contract 'LedgerChannel':
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+    |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+  > |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(527)
+
+[33mWarning[0m for DAOConstantGas in contract 'LedgerChannel':
+    |
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+  > |            channel.partyAddresses[0].transfer(ethbalanceA);
+    |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+  at cases//SpankChain_Payment.sol(790)
+
+[33mWarning[0m for DAOConstantGas in contract 'LedgerChannel':
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+    |            channel.partyAddresses[0].transfer(ethbalanceA);
+  > |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(791)
+
+[31mViolation[0m for RepeatedCall in contract 'LedgerChannel':
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+    |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+  > |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(527)
+
+[31mViolation[0m for RepeatedCall in contract 'LedgerChannel':
+    |        if(_balances[2] != 0 || _balances[3] != 0) {
+    |            require(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0], _balances[2]),"happyCloseChannel: token transfer failure");
+  > |            require(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[1], _balances[3]),"happyCloseChannel: token transfer failure");          
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(532)
+
+[31mViolation[0m for RepeatedCall in contract 'LedgerChannel':
+    |            );
+    |            require(
+  > |                channel.token.transfer(channel.partyAddresses[1], tokenbalanceI),
+    |                "byzantineCloseChannel: token transfer failure"
+    |            );          
+  at cases//SpankChain_Payment.sol(800)
+
+[33mWarning[0m for RepeatedCall in contract 'LedgerChannel':
+    |
+    |        if(_balances[2] != 0 || _balances[3] != 0) {
+  > |            require(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0], _balances[2]),"happyCloseChannel: token transfer failure");
+    |            require(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[1], _balances[3]),"happyCloseChannel: token transfer failure");          
+    |        }
+  at cases//SpankChain_Payment.sol(531)
+
+[33mWarning[0m for TODAmount in contract 'LedgerChannel':
+    |
+    |        if(Channels[_lcID].initialDeposit[0] != 0) {
+  > |            Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]);
+    |        } 
+    |        if(Channels[_lcID].initialDeposit[1] != 0) {
+  at cases//SpankChain_Payment.sol(419)
+
+[33mWarning[0m for TODAmount in contract 'LedgerChannel':
+    |
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+  > |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+    |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+  at cases//SpankChain_Payment.sol(526)
+
+[33mWarning[0m for TODAmount in contract 'LedgerChannel':
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+    |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+  > |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(527)
+
+[33mWarning[0m for TODAmount in contract 'LedgerChannel':
+    |
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+  > |            channel.partyAddresses[0].transfer(ethbalanceA);
+    |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+  at cases//SpankChain_Payment.sol(790)
+
+[33mWarning[0m for TODAmount in contract 'LedgerChannel':
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+    |            channel.partyAddresses[0].transfer(ethbalanceA);
+  > |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(791)
+
+[33mWarning[0m for TODReceiver in contract 'LedgerChannel':
+    |
+    |        if(Channels[_lcID].initialDeposit[0] != 0) {
+  > |            Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]);
+    |        } 
+    |        if(Channels[_lcID].initialDeposit[1] != 0) {
+  at cases//SpankChain_Payment.sol(419)
+
+[33mWarning[0m for TODReceiver in contract 'LedgerChannel':
+    |
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+  > |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+    |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+  at cases//SpankChain_Payment.sol(526)
+
+[33mWarning[0m for TODReceiver in contract 'LedgerChannel':
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+    |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+  > |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(527)
+
+[33mWarning[0m for TODReceiver in contract 'LedgerChannel':
+    |
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+  > |            channel.partyAddresses[0].transfer(ethbalanceA);
+    |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+  at cases//SpankChain_Payment.sol(790)
+
+[33mWarning[0m for TODReceiver in contract 'LedgerChannel':
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+    |            channel.partyAddresses[0].transfer(ethbalanceA);
+  > |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(791)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'LedgerChannel':
+    |
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+  > |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+    |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+  at cases//SpankChain_Payment.sol(526)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'LedgerChannel':
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+    |            Channels[_lcID].partyAddresses[0].transfer(_balances[0]);
+  > |            Channels[_lcID].partyAddresses[1].transfer(_balances[1]);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(527)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'LedgerChannel':
+    |
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+  > |            channel.partyAddresses[0].transfer(ethbalanceA);
+    |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+  at cases//SpankChain_Payment.sol(790)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'LedgerChannel':
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+    |            channel.partyAddresses[0].transfer(ethbalanceA);
+  > |            channel.partyAddresses[1].transfer(ethbalanceI);
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(791)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |}
+    |
+  > |contract LedgerChannel {
+    |
+    |    string public constant NAME = "Ledger Channel";
+  at cases//SpankChain_Payment.sol(258)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // to be signed from this requirement
+    |        // Alternative is to check a sig as in joinChannel
+  > |        Channels[_lcID].partyAddresses[0] = msg.sender;
+    |        Channels[_lcID].partyAddresses[1] = _partyI;
+    |
+  at cases//SpankChain_Payment.sol(391)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // Alternative is to check a sig as in joinChannel
+    |        Channels[_lcID].partyAddresses[0] = msg.sender;
+  > |        Channels[_lcID].partyAddresses[1] = _partyI;
+    |
+    |        if(_balances[0] != 0) {
+  at cases//SpankChain_Payment.sol(392)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        if(_balances[0] != 0) {
+    |            require(msg.value == _balances[0], "Eth balance does not match sent value");
+  > |            Channels[_lcID].ethBalances[0] = msg.value;
+    |        } 
+    |        if(_balances[1] != 0) {
+  at cases//SpankChain_Payment.sol(396)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        } 
+    |        if(_balances[1] != 0) {
+  > |            Channels[_lcID].token = HumanStandardToken(_token);
+    |            require(Channels[_lcID].token.transferFrom(msg.sender, this, _balances[1]),"CreateChannel: token transfer failure");
+    |            Channels[_lcID].erc20Balances[0] = _balances[1];
+  at cases//SpankChain_Payment.sol(399)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            Channels[_lcID].token = HumanStandardToken(_token);
+    |            require(Channels[_lcID].token.transferFrom(msg.sender, this, _balances[1]),"CreateChannel: token transfer failure");
+  > |            Channels[_lcID].erc20Balances[0] = _balances[1];
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(401)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        }
+    |
+  > |        Channels[_lcID].sequence = 0;
+    |        Channels[_lcID].confirmTime = _confirmTime;
+    |        // is close flag, lc state sequence, number open vc, vc root hash, partyA... 
+  at cases//SpankChain_Payment.sol(404)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        Channels[_lcID].sequence = 0;
+  > |        Channels[_lcID].confirmTime = _confirmTime;
+    |        // is close flag, lc state sequence, number open vc, vc root hash, partyA... 
+    |        //Channels[_lcID].stateHash = keccak256(uint256(0), uint256(0), uint256(0), bytes32(0x0), bytes32(msg.sender), bytes32(_partyI), balanceA, balanceI);
+  at cases//SpankChain_Payment.sol(405)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // is close flag, lc state sequence, number open vc, vc root hash, partyA... 
+    |        //Channels[_lcID].stateHash = keccak256(uint256(0), uint256(0), uint256(0), bytes32(0x0), bytes32(msg.sender), bytes32(_partyI), balanceA, balanceI);
+  > |        Channels[_lcID].LCopenTimeout = now + _confirmTime;
+    |        Channels[_lcID].initialDeposit = _balances;
+    |
+  at cases//SpankChain_Payment.sol(408)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            if(isToken) {
+    |                require(Channels[_lcID].token.transferFrom(msg.sender, this, _balance),"deposit: token transfer failure");
+  > |                Channels[_lcID].erc20Balances[2] += _balance;
+    |            } else {
+    |                require(msg.value == _balance, "state balance does not match sent value");
+  at cases//SpankChain_Payment.sol(466)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            } else {
+    |                require(msg.value == _balance, "state balance does not match sent value");
+  > |                Channels[_lcID].ethBalances[2] += msg.value;
+    |            }
+    |        }
+  at cases//SpankChain_Payment.sol(469)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            if(isToken) {
+    |                require(Channels[_lcID].token.transferFrom(msg.sender, this, _balance),"deposit: token transfer failure");
+  > |                Channels[_lcID].erc20Balances[3] += _balance;
+    |            } else {
+    |                require(msg.value == _balance, "state balance does not match sent value");
+  at cases//SpankChain_Payment.sol(476)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            } else {
+    |                require(msg.value == _balance, "state balance does not match sent value");
+  > |                Channels[_lcID].ethBalances[3] += msg.value; 
+    |            }
+    |        }
+  at cases//SpankChain_Payment.sol(479)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        require(Channels[_lcID].partyAddresses[1] == ECTools.recoverSigner(_state, _sigI));
+    |
+  > |        Channels[_lcID].isOpen = false;
+    |
+    |        if(_balances[0] != 0 || _balances[1] != 0) {
+  at cases//SpankChain_Payment.sol(523)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        }
+    |
+  > |        numChannels--;
+    |
+    |        emit DidLCClose(_lcID, _sequence, _balances[0], _balances[1], _balances[2], _balances[3]);
+  at cases//SpankChain_Payment.sol(535)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        // update LC state
+  > |        channel.sequence = updateParams[0];
+    |        channel.numOpenVC = updateParams[1];
+    |        channel.ethBalances[0] = updateParams[2];
+  at cases//SpankChain_Payment.sol(581)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // update LC state
+    |        channel.sequence = updateParams[0];
+  > |        channel.numOpenVC = updateParams[1];
+    |        channel.ethBalances[0] = updateParams[2];
+    |        channel.ethBalances[1] = updateParams[3];
+  at cases//SpankChain_Payment.sol(582)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.sequence = updateParams[0];
+    |        channel.numOpenVC = updateParams[1];
+  > |        channel.ethBalances[0] = updateParams[2];
+    |        channel.ethBalances[1] = updateParams[3];
+    |        channel.erc20Balances[0] = updateParams[4];
+  at cases//SpankChain_Payment.sol(583)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.numOpenVC = updateParams[1];
+    |        channel.ethBalances[0] = updateParams[2];
+  > |        channel.ethBalances[1] = updateParams[3];
+    |        channel.erc20Balances[0] = updateParams[4];
+    |        channel.erc20Balances[1] = updateParams[5];
+  at cases//SpankChain_Payment.sol(584)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.ethBalances[0] = updateParams[2];
+    |        channel.ethBalances[1] = updateParams[3];
+  > |        channel.erc20Balances[0] = updateParams[4];
+    |        channel.erc20Balances[1] = updateParams[5];
+    |        channel.VCrootHash = _VCroot;
+  at cases//SpankChain_Payment.sol(585)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.ethBalances[1] = updateParams[3];
+    |        channel.erc20Balances[0] = updateParams[4];
+  > |        channel.erc20Balances[1] = updateParams[5];
+    |        channel.VCrootHash = _VCroot;
+    |        channel.isUpdateLCSettling = true;
+  at cases//SpankChain_Payment.sol(586)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.erc20Balances[0] = updateParams[4];
+    |        channel.erc20Balances[1] = updateParams[5];
+  > |        channel.VCrootHash = _VCroot;
+    |        channel.isUpdateLCSettling = true;
+    |        channel.updateLCtimeout = now + channel.confirmTime;
+  at cases//SpankChain_Payment.sol(587)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.erc20Balances[1] = updateParams[5];
+    |        channel.VCrootHash = _VCroot;
+  > |        channel.isUpdateLCSettling = true;
+    |        channel.updateLCtimeout = now + channel.confirmTime;
+    |
+  at cases//SpankChain_Payment.sol(588)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.VCrootHash = _VCroot;
+    |        channel.isUpdateLCSettling = true;
+  > |        channel.updateLCtimeout = now + channel.confirmTime;
+    |
+    |        // make settlement flag
+  at cases//SpankChain_Payment.sol(589)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        require(_isContained(_initState, _proof, Channels[_lcID].VCrootHash) == true);
+    |
+  > |        virtualChannels[_vcID].partyA = _partyA; // VC participant A
+    |        virtualChannels[_vcID].partyB = _partyB; // VC participant B
+    |        virtualChannels[_vcID].sequence = uint256(0);
+  at cases//SpankChain_Payment.sol(637)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        virtualChannels[_vcID].partyA = _partyA; // VC participant A
+  > |        virtualChannels[_vcID].partyB = _partyB; // VC participant B
+    |        virtualChannels[_vcID].sequence = uint256(0);
+    |        virtualChannels[_vcID].ethBalances[0] = _balances[0];
+  at cases//SpankChain_Payment.sol(638)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].partyA = _partyA; // VC participant A
+    |        virtualChannels[_vcID].partyB = _partyB; // VC participant B
+  > |        virtualChannels[_vcID].sequence = uint256(0);
+    |        virtualChannels[_vcID].ethBalances[0] = _balances[0];
+    |        virtualChannels[_vcID].ethBalances[1] = _balances[1];
+  at cases//SpankChain_Payment.sol(639)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].partyB = _partyB; // VC participant B
+    |        virtualChannels[_vcID].sequence = uint256(0);
+  > |        virtualChannels[_vcID].ethBalances[0] = _balances[0];
+    |        virtualChannels[_vcID].ethBalances[1] = _balances[1];
+    |        virtualChannels[_vcID].erc20Balances[0] = _balances[2];
+  at cases//SpankChain_Payment.sol(640)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].sequence = uint256(0);
+    |        virtualChannels[_vcID].ethBalances[0] = _balances[0];
+  > |        virtualChannels[_vcID].ethBalances[1] = _balances[1];
+    |        virtualChannels[_vcID].erc20Balances[0] = _balances[2];
+    |        virtualChannels[_vcID].erc20Balances[1] = _balances[3];
+  at cases//SpankChain_Payment.sol(641)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].ethBalances[0] = _balances[0];
+    |        virtualChannels[_vcID].ethBalances[1] = _balances[1];
+  > |        virtualChannels[_vcID].erc20Balances[0] = _balances[2];
+    |        virtualChannels[_vcID].erc20Balances[1] = _balances[3];
+    |        virtualChannels[_vcID].bond = _bond;
+  at cases//SpankChain_Payment.sol(642)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].ethBalances[1] = _balances[1];
+    |        virtualChannels[_vcID].erc20Balances[0] = _balances[2];
+  > |        virtualChannels[_vcID].erc20Balances[1] = _balances[3];
+    |        virtualChannels[_vcID].bond = _bond;
+    |        virtualChannels[_vcID].updateVCtimeout = now + Channels[_lcID].confirmTime;
+  at cases//SpankChain_Payment.sol(643)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].erc20Balances[1] = _balances[3];
+    |        virtualChannels[_vcID].bond = _bond;
+  > |        virtualChannels[_vcID].updateVCtimeout = now + Channels[_lcID].confirmTime;
+    |        virtualChannels[_vcID].isInSettlementState = true;
+    |
+  at cases//SpankChain_Payment.sol(645)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].bond = _bond;
+    |        virtualChannels[_vcID].updateVCtimeout = now + Channels[_lcID].confirmTime;
+  > |        virtualChannels[_vcID].isInSettlementState = true;
+    |
+    |        emit DidVCInit(_lcID, _vcID, _proof, uint256(0), _partyA, _partyB, _balances[0], _balances[1]);
+  at cases//SpankChain_Payment.sol(646)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // store VC data
+    |        // we may want to record who is initiating on-chain settles
+  > |        virtualChannels[_vcID].challenger = msg.sender;
+    |        virtualChannels[_vcID].sequence = updateSeq;
+    |
+  at cases//SpankChain_Payment.sol(703)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // we may want to record who is initiating on-chain settles
+    |        virtualChannels[_vcID].challenger = msg.sender;
+  > |        virtualChannels[_vcID].sequence = updateSeq;
+    |
+    |        // channel state
+  at cases//SpankChain_Payment.sol(704)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        // channel state
+  > |        virtualChannels[_vcID].ethBalances[0] = updateBal[0];
+    |        virtualChannels[_vcID].ethBalances[1] = updateBal[1];
+    |        virtualChannels[_vcID].erc20Balances[0] = updateBal[2];
+  at cases//SpankChain_Payment.sol(707)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // channel state
+    |        virtualChannels[_vcID].ethBalances[0] = updateBal[0];
+  > |        virtualChannels[_vcID].ethBalances[1] = updateBal[1];
+    |        virtualChannels[_vcID].erc20Balances[0] = updateBal[2];
+    |        virtualChannels[_vcID].erc20Balances[1] = updateBal[3];
+  at cases//SpankChain_Payment.sol(708)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].ethBalances[0] = updateBal[0];
+    |        virtualChannels[_vcID].ethBalances[1] = updateBal[1];
+  > |        virtualChannels[_vcID].erc20Balances[0] = updateBal[2];
+    |        virtualChannels[_vcID].erc20Balances[1] = updateBal[3];
+    |
+  at cases//SpankChain_Payment.sol(709)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].ethBalances[1] = updateBal[1];
+    |        virtualChannels[_vcID].erc20Balances[0] = updateBal[2];
+  > |        virtualChannels[_vcID].erc20Balances[1] = updateBal[3];
+    |
+    |        virtualChannels[_vcID].updateVCtimeout = now + Channels[_lcID].confirmTime;
+  at cases//SpankChain_Payment.sol(710)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        virtualChannels[_vcID].erc20Balances[1] = updateBal[3];
+    |
+  > |        virtualChannels[_vcID].updateVCtimeout = now + Channels[_lcID].confirmTime;
+    |
+    |        emit DidVCSettle(_lcID, _vcID, updateSeq, updateBal[0], updateBal[1], msg.sender, virtualChannels[_vcID].updateVCtimeout);
+  at cases//SpankChain_Payment.sol(712)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        require(!virtualChannels[_vcID].isClose, "VC is already closed");
+    |        // reduce the number of open virtual channels stored on LC
+  > |        Channels[_lcID].numOpenVC--;
+    |        // close vc flags
+    |        virtualChannels[_vcID].isClose = true;
+  at cases//SpankChain_Payment.sol(724)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        Channels[_lcID].numOpenVC--;
+    |        // close vc flags
+  > |        virtualChannels[_vcID].isClose = true;
+    |        // re-introduce the balances back into the LC state from the settled VC
+    |        // decide if this lc is alice or bob in the vc
+  at cases//SpankChain_Payment.sol(726)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // decide if this lc is alice or bob in the vc
+    |        if(virtualChannels[_vcID].partyA == Channels[_lcID].partyAddresses[0]) {
+  > |            Channels[_lcID].ethBalances[0] += virtualChannels[_vcID].ethBalances[0];
+    |            Channels[_lcID].ethBalances[1] += virtualChannels[_vcID].ethBalances[1];
+    |
+  at cases//SpankChain_Payment.sol(730)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        if(virtualChannels[_vcID].partyA == Channels[_lcID].partyAddresses[0]) {
+    |            Channels[_lcID].ethBalances[0] += virtualChannels[_vcID].ethBalances[0];
+  > |            Channels[_lcID].ethBalances[1] += virtualChannels[_vcID].ethBalances[1];
+    |
+    |            Channels[_lcID].erc20Balances[0] += virtualChannels[_vcID].erc20Balances[0];
+  at cases//SpankChain_Payment.sol(731)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            Channels[_lcID].ethBalances[1] += virtualChannels[_vcID].ethBalances[1];
+    |
+  > |            Channels[_lcID].erc20Balances[0] += virtualChannels[_vcID].erc20Balances[0];
+    |            Channels[_lcID].erc20Balances[1] += virtualChannels[_vcID].erc20Balances[1];
+    |        } else if (virtualChannels[_vcID].partyB == Channels[_lcID].partyAddresses[0]) {
+  at cases//SpankChain_Payment.sol(733)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |            Channels[_lcID].erc20Balances[0] += virtualChannels[_vcID].erc20Balances[0];
+  > |            Channels[_lcID].erc20Balances[1] += virtualChannels[_vcID].erc20Balances[1];
+    |        } else if (virtualChannels[_vcID].partyB == Channels[_lcID].partyAddresses[0]) {
+    |            Channels[_lcID].ethBalances[0] += virtualChannels[_vcID].ethBalances[1];
+  at cases//SpankChain_Payment.sol(734)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            Channels[_lcID].erc20Balances[1] += virtualChannels[_vcID].erc20Balances[1];
+    |        } else if (virtualChannels[_vcID].partyB == Channels[_lcID].partyAddresses[0]) {
+  > |            Channels[_lcID].ethBalances[0] += virtualChannels[_vcID].ethBalances[1];
+    |            Channels[_lcID].ethBalances[1] += virtualChannels[_vcID].ethBalances[0];
+    |
+  at cases//SpankChain_Payment.sol(736)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        } else if (virtualChannels[_vcID].partyB == Channels[_lcID].partyAddresses[0]) {
+    |            Channels[_lcID].ethBalances[0] += virtualChannels[_vcID].ethBalances[1];
+  > |            Channels[_lcID].ethBalances[1] += virtualChannels[_vcID].ethBalances[0];
+    |
+    |            Channels[_lcID].erc20Balances[0] += virtualChannels[_vcID].erc20Balances[1];
+  at cases//SpankChain_Payment.sol(737)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |            Channels[_lcID].ethBalances[1] += virtualChannels[_vcID].ethBalances[0];
+    |
+  > |            Channels[_lcID].erc20Balances[0] += virtualChannels[_vcID].erc20Balances[1];
+    |            Channels[_lcID].erc20Balances[1] += virtualChannels[_vcID].erc20Balances[0];
+    |        }
+  at cases//SpankChain_Payment.sol(739)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |            Channels[_lcID].erc20Balances[0] += virtualChannels[_vcID].erc20Balances[1];
+  > |            Channels[_lcID].erc20Balances[1] += virtualChannels[_vcID].erc20Balances[0];
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(740)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        if(possibleTotalEthBeforeDeposit < totalEthDeposit) {
+  > |            channel.ethBalances[0]+=channel.ethBalances[2];
+    |            channel.ethBalances[1]+=channel.ethBalances[3];
+    |        } else {
+  at cases//SpankChain_Payment.sol(765)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        if(possibleTotalEthBeforeDeposit < totalEthDeposit) {
+    |            channel.ethBalances[0]+=channel.ethBalances[2];
+  > |            channel.ethBalances[1]+=channel.ethBalances[3];
+    |        } else {
+    |            require(possibleTotalEthBeforeDeposit == totalEthDeposit);
+  at cases//SpankChain_Payment.sol(766)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        if(possibleTotalTokenBeforeDeposit < totalTokenDeposit) {
+  > |            channel.erc20Balances[0]+=channel.erc20Balances[2];
+    |            channel.erc20Balances[1]+=channel.erc20Balances[3];
+    |        } else {
+  at cases//SpankChain_Payment.sol(772)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        if(possibleTotalTokenBeforeDeposit < totalTokenDeposit) {
+    |            channel.erc20Balances[0]+=channel.erc20Balances[2];
+  > |            channel.erc20Balances[1]+=channel.erc20Balances[3];
+    |        } else {
+    |            require(possibleTotalTokenBeforeDeposit == totalTokenDeposit);
+  at cases//SpankChain_Payment.sol(773)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        uint256 tokenbalanceI = channel.erc20Balances[1];
+    |
+  > |        channel.ethBalances[0] = 0;
+    |        channel.ethBalances[1] = 0;
+    |        channel.erc20Balances[0] = 0;
+  at cases//SpankChain_Payment.sol(784)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        channel.ethBalances[0] = 0;
+  > |        channel.ethBalances[1] = 0;
+    |        channel.erc20Balances[0] = 0;
+    |        channel.erc20Balances[1] = 0;
+  at cases//SpankChain_Payment.sol(785)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.ethBalances[0] = 0;
+    |        channel.ethBalances[1] = 0;
+  > |        channel.erc20Balances[0] = 0;
+    |        channel.erc20Balances[1] = 0;
+    |
+  at cases//SpankChain_Payment.sol(786)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        channel.ethBalances[1] = 0;
+    |        channel.erc20Balances[0] = 0;
+  > |        channel.erc20Balances[1] = 0;
+    |
+    |        if(ethbalanceA != 0 || ethbalanceI != 0) {
+  at cases//SpankChain_Payment.sol(787)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        }
+    |
+  > |        channel.isOpen = false;
+    |        numChannels--;
+    |
+  at cases//SpankChain_Payment.sol(805)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        channel.isOpen = false;
+  > |        numChannels--;
+    |
+    |        emit DidLCClose(_lcID, channel.sequence, ethbalanceA, ethbalanceI, tokenbalanceA, tokenbalanceI);
+  at cases//SpankChain_Payment.sol(806)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |}
+    |
+  > |contract LedgerChannel {
+    |
+    |    string public constant NAME = "Ledger Channel";
+  at cases//SpankChain_Payment.sol(258)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        // only safe to delete since no action was taken on this channel
+  > |        delete Channels[_lcID];
+    |    }
+    |
+  at cases//SpankChain_Payment.sol(428)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        if(_balances[0] != 0) {
+    |            require(msg.value == _balances[0], "state balance does not match sent value");
+  > |            Channels[_lcID].ethBalances[1] = msg.value;
+    |        } 
+    |        if(_balances[1] != 0) {
+  at cases//SpankChain_Payment.sol(438)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        if(_balances[1] != 0) {
+    |            require(Channels[_lcID].token.transferFrom(msg.sender, this, _balances[1]),"joinChannel: token transfer failure");
+  > |            Channels[_lcID].erc20Balances[1] = _balances[1];          
+    |        }
+    |
+  at cases//SpankChain_Payment.sol(442)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        }
+    |
+  > |        Channels[_lcID].initialDeposit[0]+=_balances[0];
+    |        Channels[_lcID].initialDeposit[1]+=_balances[1];
+    |        // no longer allow joining functions to be called
+  at cases//SpankChain_Payment.sol(445)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |
+    |        Channels[_lcID].initialDeposit[0]+=_balances[0];
+  > |        Channels[_lcID].initialDeposit[1]+=_balances[1];
+    |        // no longer allow joining functions to be called
+    |        Channels[_lcID].isOpen = true;
+  at cases//SpankChain_Payment.sol(446)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        Channels[_lcID].initialDeposit[1]+=_balances[1];
+    |        // no longer allow joining functions to be called
+  > |        Channels[_lcID].isOpen = true;
+    |        numChannels++;
+    |
+  at cases//SpankChain_Payment.sol(448)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'LedgerChannel':
+    |        // no longer allow joining functions to be called
+    |        Channels[_lcID].isOpen = true;
+  > |        numChannels++;
+    |
+    |        emit DidLCJoin(_lcID, _balances[0], _balances[1]);
+  at cases//SpankChain_Payment.sol(449)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |contract StandardToken is Token {
+    |
+  > |    function transfer(address _to, uint256 _value) public returns (bool success) {
+    |        //Default assumes totalSupply can't be over max (2^256 - 1).
+    |        //If your token leaves out totalSupply and can issue more tokens as time goes on, you need to check if it doesn't wrap.
+  at cases//SpankChain_Payment.sol(176)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+    |        //same as above. Replace this line with the following if you want to protect against wrapping uints.
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+  at cases//SpankChain_Payment.sol(188)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function balanceOf(address _owner) public constant returns (uint256 balance) {
+    |        return balances[_owner];
+    |    }
+  at cases//SpankChain_Payment.sol(199)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function approve(address _spender, uint256 _value) public returns (bool success) {
+    |        allowed[msg.sender][_spender] = _value;
+    |        emit Approval(msg.sender, _spender, _value);
+  at cases//SpankChain_Payment.sol(203)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function allowance(address _owner, address _spender) public constant returns (uint256 remaining) {
+    |      return allowed[_owner][_spender];
+    |    }
+  at cases//SpankChain_Payment.sol(209)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StandardToken':
+    |        require(balances[msg.sender] >= _value);
+    |        balances[msg.sender] -= _value;
+  > |        balances[_to] += _value;
+    |        emit Transfer(msg.sender, _to, _value);
+    |        return true;
+  at cases//SpankChain_Payment.sol(183)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StandardToken':
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+  > |        balances[_to] += _value;
+    |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+  at cases//SpankChain_Payment.sol(192)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StandardToken':
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+    |        balances[_to] += _value;
+  > |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+    |        emit Transfer(_from, _to, _value);
+  at cases//SpankChain_Payment.sol(193)
+
+Processing contract: cases//sendloop.sol:Refunder
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'Refunder':
+    |    
+    |address[] private refundAddresses;
+  > |mapping (address => uint) public refunds;
+    |
+    |    constructor() {
+  at cases//sendloop.sol(12)
+
+[33mWarning[0m for TODAmount in contract 'Refunder':
+    |    function refundAll() public {
+    |        for(uint x; x < refundAddresses.length; x++) { // arbitrary length iteration based on how many addresses participated
+  > |            require(refundAddresses[x].send(refunds[refundAddresses[x]])); // doubly bad, now a single failure on send will hold up all funds
+    |        }
+    |    }
+  at cases//sendloop.sol(22)
+
+[33mWarning[0m for TODReceiver in contract 'Refunder':
+    |    function refundAll() public {
+    |        for(uint x; x < refundAddresses.length; x++) { // arbitrary length iteration based on how many addresses participated
+  > |            require(refundAddresses[x].send(refunds[refundAddresses[x]])); // doubly bad, now a single failure on send will hold up all funds
+    |        }
+    |    }
+  at cases//sendloop.sol(22)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Refunder':
+    |    function refundAll() public {
+    |        for(uint x; x < refundAddresses.length; x++) { // arbitrary length iteration based on how many addresses participated
+  > |            require(refundAddresses[x].send(refunds[refundAddresses[x]])); // doubly bad, now a single failure on send will hold up all funds
+    |        }
+    |    }
+  at cases//sendloop.sol(22)
+
+Processing contract: cases//integer_overflow_minimal.sol:IntegerOverflowMinimal
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'IntegerOverflowMinimal':
+    |    uint public count = 1;
+    |
+  > |    function run(uint256 input) public {
+    |        count -= input;
+    |    }
+  at cases//integer_overflow_minimal.sol(9)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMinimal':
+    |
+    |    function run(uint256 input) public {
+  > |        count -= input;
+    |    }
+    |}
+  at cases//integer_overflow_minimal.sol(10)
+
+Processing contract: cases//DAO.sol:DAO
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+java.io.IOException: Timeout for /var/folders/s3/kjnys5cn1wv_vnz1bbyjpttc0000gn/T/binaries_souffle7682621845467664364/mustExplicit -j 16 -F /var/folders/s3/kjnys5cn1wv_vnz1bbyjpttc0000gn/T/souffle-ede2ceb5-0ddf-473a-943e-055aedf711ea -D /var/folders/s3/kjnys5cn1wv_vnz1bbyjpttc0000gn/T/souffle-ede2ceb5-0ddf-473a-943e-055aedf711ea_OUT
+	at ch.securify.analysis.AbstractDataflow.runCommand(AbstractDataflow.java:277)
+	at ch.securify.analysis.AbstractDataflow.initDataflow(AbstractDataflow.java:169)
+	at ch.securify.analysis.MustExplicitDataflow.<init>(MustExplicitDataflow.java:33)
+	at ch.securify.analysis.Dataflow.<init>(Dataflow.java:33)
+	at ch.securify.analysis.DataflowFactory.getDataflow(DataflowFactory.java:54)
+	at ch.securify.Main.checkPatterns(Main.java:388)
+	at ch.securify.Main.processHexFile(Main.java:189)
+	at ch.securify.Main.processCompilationOutput(Main.java:129)
+	at ch.securify.Main.processSolidityFile(Main.java:100)
+	at ch.securify.Main.main(Main.java:254)
+Error in Securify
+java.lang.RuntimeException
+	at ch.securify.analysis.Dataflow.<init>(Dataflow.java:37)
+	at ch.securify.analysis.DataflowFactory.getDataflow(DataflowFactory.java:54)
+	at ch.securify.Main.checkPatterns(Main.java:388)
+	at ch.securify.Main.processHexFile(Main.java:189)
+	at ch.securify.Main.processCompilationOutput(Main.java:129)
+	at ch.securify.Main.processSolidityFile(Main.java:100)
+	at ch.securify.Main.main(Main.java:254)
+Error, skipping: cases//DAO.sol:DAO
+Processing contract: cases//DAO.sol:DAOInterface
+Processing contract: cases//DAO.sol:DAO_Creator
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//DAO.sol:ManagedAccount
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//DAO.sol:ManagedAccountInterface
+Processing contract: cases//DAO.sol:Token
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//DAO.sol:TokenCreation
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//DAO.sol:TokenCreationInterface
+Processing contract: cases//DAO.sol:TokenInterface
+[31mViolation[0m for MissingInputValidation in contract 'DAO_Creator':
+    |
+    |contract DAO_Creator {
+  > |    function createDAO(
+    |        address _curator,
+    |        uint _proposalDeposit,
+  at cases//DAO.sol(1214)
+
+[31mViolation[0m for MissingInputValidation in contract 'ManagedAccount':
+    |    }
+    |
+  > |    function payOut(address _recipient, uint _amount) returns (bool) {
+    |        if (msg.sender != owner || msg.value > 0 || (payOwnerOnly && _recipient != owner))
+    |            revert();
+  at cases//DAO.sol(199)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ManagedAccount':
+    |        if (msg.sender != owner || msg.value > 0 || (payOwnerOnly && _recipient != owner))
+    |            revert();
+  > |        if (_recipient.call.value(_amount)()) {
+    |            PayOut(_recipient, _amount);
+    |            return true;
+  at cases//DAO.sol(202)
+
+[31mViolation[0m for MissingInputValidation in contract 'Token':
+    |        _;}
+    |
+  > |    function balanceOf(address _owner) constant returns (uint256 balance) {
+    |        return balances[_owner];
+    |    }
+  at cases//DAO.sol(96)
+
+[31mViolation[0m for MissingInputValidation in contract 'Token':
+    |    }
+    |
+  > |    function transfer(address _to, uint256 _amount) noEther returns (bool success) {
+    |        if (balances[msg.sender] >= _amount && _amount > 0) {
+    |            balances[msg.sender] -= _amount;
+  at cases//DAO.sol(100)
+
+[31mViolation[0m for MissingInputValidation in contract 'Token':
+    |    }
+    |
+  > |    function transferFrom(
+    |        address _from,
+    |        address _to,
+  at cases//DAO.sol(111)
+
+[31mViolation[0m for MissingInputValidation in contract 'Token':
+    |    }
+    |
+  > |    function approve(address _spender, uint256 _amount) returns (bool success) {
+    |        allowed[msg.sender][_spender] = _amount;
+    |        Approval(msg.sender, _spender, _amount);
+  at cases//DAO.sol(131)
+
+[31mViolation[0m for MissingInputValidation in contract 'Token':
+    |    }
+    |
+  > |    function allowance(address _owner, address _spender) constant returns (uint256 remaining) {
+    |        return allowed[_owner][_spender];
+    |    }
+  at cases//DAO.sol(137)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Token':
+    |        if (balances[msg.sender] >= _amount && _amount > 0) {
+    |            balances[msg.sender] -= _amount;
+  > |            balances[_to] += _amount;
+    |            Transfer(msg.sender, _to, _amount);
+    |            return true;
+  at cases//DAO.sol(103)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Token':
+    |            && _amount > 0) {
+    |
+  > |            balances[_to] += _amount;
+    |            balances[_from] -= _amount;
+    |            allowed[_from][msg.sender] -= _amount;
+  at cases//DAO.sol(121)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Token':
+    |
+    |            balances[_to] += _amount;
+  > |            balances[_from] -= _amount;
+    |            allowed[_from][msg.sender] -= _amount;
+    |            Transfer(_from, _to, _amount);
+  at cases//DAO.sol(122)
+
+[31mViolation[0m for DAO in contract 'TokenCreation':
+    |
+    |            uint token = (msg.value * 20) / divisor();
+  > |            extraBalance.call.value(msg.value - token)();
+    |            balances[_tokenHolder] += token;
+    |            totalSupply += token;
+  at cases//DAO.sol(305)
+
+[31mViolation[0m for DAO in contract 'TokenCreation':
+    |
+    |            // Execute refund
+  > |            if (msg.sender.call.value(weiGiven[msg.sender])()) {
+    |                Refund(msg.sender, weiGiven[msg.sender]);
+    |                totalSupply -= balances[msg.sender];
+  at cases//DAO.sol(326)
+
+[31mViolation[0m for MissingInputValidation in contract 'TokenCreation':
+    |        _;}
+    |
+  > |    function balanceOf(address _owner) constant returns (uint256 balance) {
+    |        return balances[_owner];
+    |    }
+  at cases//DAO.sol(96)
+
+[31mViolation[0m for MissingInputValidation in contract 'TokenCreation':
+    |    }
+    |
+  > |    function transfer(address _to, uint256 _amount) noEther returns (bool success) {
+    |        if (balances[msg.sender] >= _amount && _amount > 0) {
+    |            balances[msg.sender] -= _amount;
+  at cases//DAO.sol(100)
+
+[31mViolation[0m for MissingInputValidation in contract 'TokenCreation':
+    |    }
+    |
+  > |    function transferFrom(
+    |        address _from,
+    |        address _to,
+  at cases//DAO.sol(111)
+
+[31mViolation[0m for MissingInputValidation in contract 'TokenCreation':
+    |    }
+    |
+  > |    function approve(address _spender, uint256 _amount) returns (bool success) {
+    |        allowed[msg.sender][_spender] = _amount;
+    |        Approval(msg.sender, _spender, _amount);
+  at cases//DAO.sol(131)
+
+[31mViolation[0m for MissingInputValidation in contract 'TokenCreation':
+    |    }
+    |
+  > |    function allowance(address _owner, address _spender) constant returns (uint256 remaining) {
+    |        return allowed[_owner][_spender];
+    |    }
+  at cases//DAO.sol(137)
+
+[31mViolation[0m for MissingInputValidation in contract 'TokenCreation':
+    |    }
+    |
+  > |    function createTokenProxy(address _tokenHolder) returns (bool success) {
+    |        if (now < closingTime && msg.value > 0
+    |            && (privateCreation == 0 || privateCreation == msg.sender)) {
+  at cases//DAO.sol(300)
+
+[33mWarning[0m for TODAmount in contract 'TokenCreation':
+    |
+    |            uint token = (msg.value * 20) / divisor();
+  > |            extraBalance.call.value(msg.value - token)();
+    |            balances[_tokenHolder] += token;
+    |            totalSupply += token;
+  at cases//DAO.sol(305)
+
+[33mWarning[0m for TODAmount in contract 'TokenCreation':
+    |
+    |            // Execute refund
+  > |            if (msg.sender.call.value(weiGiven[msg.sender])()) {
+    |                Refund(msg.sender, weiGiven[msg.sender]);
+    |                totalSupply -= balances[msg.sender];
+  at cases//DAO.sol(326)
+
+[33mWarning[0m for TODReceiver in contract 'TokenCreation':
+    |
+    |            uint token = (msg.value * 20) / divisor();
+  > |            extraBalance.call.value(msg.value - token)();
+    |            balances[_tokenHolder] += token;
+    |            totalSupply += token;
+  at cases//DAO.sol(305)
+
+[31mViolation[0m for UnhandledException in contract 'TokenCreation':
+    |
+    |            uint token = (msg.value * 20) / divisor();
+  > |            extraBalance.call.value(msg.value - token)();
+    |            balances[_tokenHolder] += token;
+    |            totalSupply += token;
+  at cases//DAO.sol(305)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TokenCreation':
+    |
+    |            uint token = (msg.value * 20) / divisor();
+  > |            extraBalance.call.value(msg.value - token)();
+    |            balances[_tokenHolder] += token;
+    |            totalSupply += token;
+  at cases//DAO.sol(305)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TokenCreation':
+    |
+    |            // Execute refund
+  > |            if (msg.sender.call.value(weiGiven[msg.sender])()) {
+    |                Refund(msg.sender, weiGiven[msg.sender]);
+    |                totalSupply -= balances[msg.sender];
+  at cases//DAO.sol(326)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |        if (balances[msg.sender] >= _amount && _amount > 0) {
+    |            balances[msg.sender] -= _amount;
+  > |            balances[_to] += _amount;
+    |            Transfer(msg.sender, _to, _amount);
+    |            return true;
+  at cases//DAO.sol(103)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |            && _amount > 0) {
+    |
+  > |            balances[_to] += _amount;
+    |            balances[_from] -= _amount;
+    |            allowed[_from][msg.sender] -= _amount;
+  at cases//DAO.sol(121)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |
+    |            balances[_to] += _amount;
+  > |            balances[_from] -= _amount;
+    |            allowed[_from][msg.sender] -= _amount;
+    |            Transfer(_from, _to, _amount);
+  at cases//DAO.sol(122)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |            uint token = (msg.value * 20) / divisor();
+    |            extraBalance.call.value(msg.value - token)();
+  > |            balances[_tokenHolder] += token;
+    |            totalSupply += token;
+    |            weiGiven[_tokenHolder] += msg.value;
+  at cases//DAO.sol(306)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |            extraBalance.call.value(msg.value - token)();
+    |            balances[_tokenHolder] += token;
+  > |            totalSupply += token;
+    |            weiGiven[_tokenHolder] += msg.value;
+    |            CreatedToken(_tokenHolder, token);
+  at cases//DAO.sol(307)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |            balances[_tokenHolder] += token;
+    |            totalSupply += token;
+  > |            weiGiven[_tokenHolder] += msg.value;
+    |            CreatedToken(_tokenHolder, token);
+    |            if (totalSupply >= minTokensToCreate && !isFueled) {
+  at cases//DAO.sol(308)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |            CreatedToken(_tokenHolder, token);
+    |            if (totalSupply >= minTokensToCreate && !isFueled) {
+  > |                isFueled = true;
+    |                FuelingToDate(totalSupply);
+    |            }
+  at cases//DAO.sol(311)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TokenCreation':
+    |            if (msg.sender.call.value(weiGiven[msg.sender])()) {
+    |                Refund(msg.sender, weiGiven[msg.sender]);
+  > |                totalSupply -= balances[msg.sender];
+    |                balances[msg.sender] = 0;
+    |                weiGiven[msg.sender] = 0;
+  at cases//DAO.sol(328)
+
+Processing contract: cases//integer_overflow_mul_fixed.sol:IntegerOverflowMul
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[33mWarning[0m for MissingInputValidation in contract 'IntegerOverflowMul':
+    |    uint public count = 2;
+    |
+  > |    function run(uint256 input) public {
+    |        count = mul(count, input);
+    |    }
+  at cases//integer_overflow_mul_fixed.sol(10)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMul':
+    |
+    |    function run(uint256 input) public {
+  > |        count = mul(count, input);
+    |    }
+    |
+  at cases//integer_overflow_mul_fixed.sol(11)
+
+Processing contract: cases//modifier_reentrancy.sol:Bank
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//modifier_reentrancy.sol:ModifierEntrancy
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'ModifierEntrancy':
+    |
+    |contract ModifierEntrancy {
+  > |  mapping (address => uint) public tokenBalance;
+    |  string constant name = "Nu Token";
+    |
+  at cases//modifier_reentrancy.sol(4)
+
+Processing contract: cases//integer_overflow_multitx_multifunc_feasible_fixed.sol:IntegerOverflowMultiTxMultiFuncFeasible
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxMultiFuncFeasible':
+    |
+    |    function init() public {
+  > |        initialized = 1;
+    |    }
+    |
+  at cases//integer_overflow_multitx_multifunc_feasible_fixed.sol(16)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxMultiFuncFeasible':
+    |        }
+    |
+  > |        count = sub(count, input);
+    |    }
+    |
+  at cases//integer_overflow_multitx_multifunc_feasible_fixed.sol(24)
+
+Processing contract: cases//dos_address.sol:DosGas
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for LockedEther in contract 'DosGas':
+    |// pragma solidity ^0.4.25;
+    |
+  > |contract DosGas {
+    |
+    |    address[] creditorAddresses;
+  at cases//dos_address.sol(3)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosGas':
+    |// pragma solidity ^0.4.25;
+    |
+  > |contract DosGas {
+    |
+    |    address[] creditorAddresses;
+  at cases//dos_address.sol(3)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosGas':
+    |        if(creditorAddresses.length>1500) {
+    |            creditorAddresses = new address[](0);
+  > |            win = true;
+    |        }
+    |    }
+  at cases//dos_address.sol(11)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosGas':
+    |    function addCreditors() public returns (bool) {
+    |        for(uint i=0;i<350;i++) {
+  > |          creditorAddresses.push(msg.sender);
+    |        }
+    |        return true;
+  at cases//dos_address.sol(17)
+
+Processing contract: cases//old_blockhash.sol:PredictTheBlockHashChallenge
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'PredictTheBlockHashChallenge':
+    |    }
+    |
+  > |    function lockInGuess(bytes32 hash) public payable {
+    |        require(guesses[msg.sender].block == 0);
+    |        require(msg.value == 1 ether);
+  at cases//old_blockhash.sol(18)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PredictTheBlockHashChallenge':
+    |        guesses[msg.sender].block = 0;
+    |        if (guesses[msg.sender].guess == answer) {
+  > |            msg.sender.transfer(2 ether);
+    |        }
+    |    }
+  at cases//old_blockhash.sol(33)
+
+Processing contract: cases//theRun.sol:theRun
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'theRun':
+    |                    uint roll = random(100); //take a random number between 1 & 100
+    |                    if( roll % 10 == 0 ){ //if lucky : Chances : 1 out of 10 ! 
+  > |                        msg.sender.send(WinningPot); // Bravo !
+    |                        WinningPot=0;
+    |                    }
+  at cases//theRun.sol(77)
+
+[31mViolation[0m for DAOConstantGas in contract 'theRun':
+    |                while ( Balance > players[Payout_id].payout ) {
+    |                    Last_Payout = players[Payout_id].payout;
+  > |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+  at cases//theRun.sol(86)
+
+[31mViolation[0m for DAOConstantGas in contract 'theRun':
+    |    function CollectAllFees() onlyowner {
+    |        if (fees == 0) throw;
+  > |        admin.send(fees);
+    |        feeFrac-=1;
+    |        fees = 0;
+  at cases//theRun.sol(126)
+
+[31mViolation[0m for DAOConstantGas in contract 'theRun':
+    |    function GetAndReduceFeesByFraction(uint p) onlyowner {
+    |        if (fees == 0) feeFrac-=1; //Reduce fees.
+  > |        admin.send(fees / 1000 * p);//send a percent of fees
+    |        fees -= fees / 1000 * p;
+    |    }
+  at cases//theRun.sol(133)
+
+[33mWarning[0m for DAOConstantGas in contract 'theRun':
+    |            }
+    |            if (msg.value > 20 ether) { //only participation with <20 ether accepted
+  > |                    msg.sender.send(msg.value- (20 ether));
+    |                    deposit=20 ether;
+    |            }
+  at cases//theRun.sol(46)
+
+[31mViolation[0m for MissingInputValidation in contract 'theRun':
+    |
+    |    //---Contract management functions
+  > |    function ChangeOwnership(address _owner) onlyowner {
+    |        admin = _owner;
+    |    }
+  at cases//theRun.sol(111)
+
+[31mViolation[0m for MissingInputValidation in contract 'theRun':
+    |    }
+    |    
+  > |    function GetAndReduceFeesByFraction(uint p) onlyowner {
+    |        if (fees == 0) feeFrac-=1; //Reduce fees.
+    |        admin.send(fees / 1000 * p);//send a percent of fees
+  at cases//theRun.sol(131)
+
+[31mViolation[0m for TODAmount in contract 'theRun':
+    |                while ( Balance > players[Payout_id].payout ) {
+    |                    Last_Payout = players[Payout_id].payout;
+  > |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+  at cases//theRun.sol(86)
+
+[31mViolation[0m for TODAmount in contract 'theRun':
+    |    function CollectAllFees() onlyowner {
+    |        if (fees == 0) throw;
+  > |        admin.send(fees);
+    |        feeFrac-=1;
+    |        fees = 0;
+  at cases//theRun.sol(126)
+
+[33mWarning[0m for TODAmount in contract 'theRun':
+    |            uint deposit=msg.value;
+    |            if (msg.value < 500 finney) { //only participation with >1 ether accepted
+  > |                    msg.sender.send(msg.value);
+    |                    return;
+    |            }
+  at cases//theRun.sol(42)
+
+[33mWarning[0m for TODAmount in contract 'theRun':
+    |            }
+    |            if (msg.value > 20 ether) { //only participation with <20 ether accepted
+  > |                    msg.sender.send(msg.value- (20 ether));
+    |                    deposit=20 ether;
+    |            }
+  at cases//theRun.sol(46)
+
+[33mWarning[0m for TODAmount in contract 'theRun':
+    |                    uint roll = random(100); //take a random number between 1 & 100
+    |                    if( roll % 10 == 0 ){ //if lucky : Chances : 1 out of 10 ! 
+  > |                        msg.sender.send(WinningPot); // Bravo !
+    |                        WinningPot=0;
+    |                    }
+  at cases//theRun.sol(77)
+
+[33mWarning[0m for TODAmount in contract 'theRun':
+    |                while ( Balance > players[Payout_id].payout ) {
+    |                    Last_Payout = players[Payout_id].payout;
+  > |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+  at cases//theRun.sol(86)
+
+[33mWarning[0m for TODAmount in contract 'theRun':
+    |    function GetAndReduceFeesByFraction(uint p) onlyowner {
+    |        if (fees == 0) feeFrac-=1; //Reduce fees.
+  > |        admin.send(fees / 1000 * p);//send a percent of fees
+    |        fees -= fees / 1000 * p;
+    |    }
+  at cases//theRun.sol(133)
+
+[31mViolation[0m for TODReceiver in contract 'theRun':
+    |    function CollectAllFees() onlyowner {
+    |        if (fees == 0) throw;
+  > |        admin.send(fees);
+    |        feeFrac-=1;
+    |        fees = 0;
+  at cases//theRun.sol(126)
+
+[31mViolation[0m for TODReceiver in contract 'theRun':
+    |    function GetAndReduceFeesByFraction(uint p) onlyowner {
+    |        if (fees == 0) feeFrac-=1; //Reduce fees.
+  > |        admin.send(fees / 1000 * p);//send a percent of fees
+    |        fees -= fees / 1000 * p;
+    |    }
+  at cases//theRun.sol(133)
+
+[33mWarning[0m for TODReceiver in contract 'theRun':
+    |                while ( Balance > players[Payout_id].payout ) {
+    |                    Last_Payout = players[Payout_id].payout;
+  > |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+  at cases//theRun.sol(86)
+
+[31mViolation[0m for UnhandledException in contract 'theRun':
+    |            uint deposit=msg.value;
+    |            if (msg.value < 500 finney) { //only participation with >1 ether accepted
+  > |                    msg.sender.send(msg.value);
+    |                    return;
+    |            }
+  at cases//theRun.sol(42)
+
+[31mViolation[0m for UnhandledException in contract 'theRun':
+    |            }
+    |            if (msg.value > 20 ether) { //only participation with <20 ether accepted
+  > |                    msg.sender.send(msg.value- (20 ether));
+    |                    deposit=20 ether;
+    |            }
+  at cases//theRun.sol(46)
+
+[31mViolation[0m for UnhandledException in contract 'theRun':
+    |                    uint roll = random(100); //take a random number between 1 & 100
+    |                    if( roll % 10 == 0 ){ //if lucky : Chances : 1 out of 10 ! 
+  > |                        msg.sender.send(WinningPot); // Bravo !
+    |                        WinningPot=0;
+    |                    }
+  at cases//theRun.sol(77)
+
+[31mViolation[0m for UnhandledException in contract 'theRun':
+    |                while ( Balance > players[Payout_id].payout ) {
+    |                    Last_Payout = players[Payout_id].payout;
+  > |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+  at cases//theRun.sol(86)
+
+[31mViolation[0m for UnhandledException in contract 'theRun':
+    |    function CollectAllFees() onlyowner {
+    |        if (fees == 0) throw;
+  > |        admin.send(fees);
+    |        feeFrac-=1;
+    |        fees = 0;
+  at cases//theRun.sol(126)
+
+[31mViolation[0m for UnhandledException in contract 'theRun':
+    |    function GetAndReduceFeesByFraction(uint p) onlyowner {
+    |        if (fees == 0) feeFrac-=1; //Reduce fees.
+  > |        admin.send(fees / 1000 * p);//send a percent of fees
+    |        fees -= fees / 1000 * p;
+    |    }
+  at cases//theRun.sol(133)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'theRun':
+    |            uint deposit=msg.value;
+    |            if (msg.value < 500 finney) { //only participation with >1 ether accepted
+  > |                    msg.sender.send(msg.value);
+    |                    return;
+    |            }
+  at cases//theRun.sol(42)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'theRun':
+    |            }
+    |            if (msg.value > 20 ether) { //only participation with <20 ether accepted
+  > |                    msg.sender.send(msg.value- (20 ether));
+    |                    deposit=20 ether;
+    |            }
+  at cases//theRun.sol(46)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'theRun':
+    |                    uint roll = random(100); //take a random number between 1 & 100
+    |                    if( roll % 10 == 0 ){ //if lucky : Chances : 1 out of 10 ! 
+  > |                        msg.sender.send(WinningPot); // Bravo !
+    |                        WinningPot=0;
+    |                    }
+  at cases//theRun.sol(77)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'theRun':
+    |                while ( Balance > players[Payout_id].payout ) {
+    |                    Last_Payout = players[Payout_id].payout;
+  > |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+  at cases//theRun.sol(86)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |contract theRun {
+  > |        uint private Balance = 0;
+    |        uint private Payout_id = 0;
+    |        uint private Last_Payout = 0;
+  at cases//theRun.sol(2)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                
+    |                //add new player in the queue !
+  > |                players.push(Player(msg.sender, (deposit * total_multiplier) / 1000, false));
+    |                
+    |                //--- UPDATING CONTRACT STATS ----
+  at cases//theRun.sol(66)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                
+    |                //--- UPDATING CONTRACT STATS ----
+  > |                WinningPot += (deposit * PotFrac) / 1000; // take some 3% to add for the winning pot !
+    |                fees += (deposit * feeFrac) / 1000; // collect maintenance fees 2%
+    |                Balance += (deposit * (1000 - ( feeFrac + PotFrac ))) / 1000; // update balance
+  at cases//theRun.sol(69)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                //--- UPDATING CONTRACT STATS ----
+    |                WinningPot += (deposit * PotFrac) / 1000; // take some 3% to add for the winning pot !
+  > |                fees += (deposit * feeFrac) / 1000; // collect maintenance fees 2%
+    |                Balance += (deposit * (1000 - ( feeFrac + PotFrac ))) / 1000; // update balance
+    |
+  at cases//theRun.sol(70)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                WinningPot += (deposit * PotFrac) / 1000; // take some 3% to add for the winning pot !
+    |                fees += (deposit * feeFrac) / 1000; // collect maintenance fees 2%
+  > |                Balance += (deposit * (1000 - ( feeFrac + PotFrac ))) / 1000; // update balance
+    |
+    |                // Winning the Pot :) Condition : paying at least 1 people with deposit > 2 ether and having luck !
+  at cases//theRun.sol(71)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                    if( roll % 10 == 0 ){ //if lucky : Chances : 1 out of 10 ! 
+    |                        msg.sender.send(WinningPot); // Bravo !
+  > |                        WinningPot=0;
+    |                    }
+    |                    
+  at cases//theRun.sol(78)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                //Classic payout for the participants
+    |                while ( Balance > players[Payout_id].payout ) {
+  > |                    Last_Payout = players[Payout_id].payout;
+    |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+  at cases//theRun.sol(85)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                    Last_Payout = players[Payout_id].payout;
+    |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+  > |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+    |                    
+  at cases//theRun.sol(87)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+  > |                    players[Payout_id].paid=true;
+    |                    
+    |                    Payout_id += 1;
+  at cases//theRun.sol(88)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'theRun':
+    |                    players[Payout_id].paid=true;
+    |                    
+  > |                    Payout_id += 1;
+    |                }
+    |        }
+  at cases//theRun.sol(90)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'theRun':
+    |                    if( roll % 10 == 0 ){ //if lucky : Chances : 1 out of 10 ! 
+    |                        msg.sender.send(WinningPot); // Bravo !
+  > |                        WinningPot=0;
+    |                    }
+    |                    
+  at cases//theRun.sol(78)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'theRun':
+    |                //Classic payout for the participants
+    |                while ( Balance > players[Payout_id].payout ) {
+  > |                    Last_Payout = players[Payout_id].payout;
+    |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+  at cases//theRun.sol(85)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'theRun':
+    |                    Last_Payout = players[Payout_id].payout;
+    |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+  > |                    Balance -= players[Payout_id].payout; //update the balance
+    |                    players[Payout_id].paid=true;
+    |                    
+  at cases//theRun.sol(87)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'theRun':
+    |                    players[Payout_id].addr.send(Last_Payout); //pay the man, please !
+    |                    Balance -= players[Payout_id].payout; //update the balance
+  > |                    players[Payout_id].paid=true;
+    |                    
+    |                    Payout_id += 1;
+  at cases//theRun.sol(88)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'theRun':
+    |                    players[Payout_id].paid=true;
+    |                    
+  > |                    Payout_id += 1;
+    |                }
+    |        }
+  at cases//theRun.sol(90)
+
+Processing contract: cases//guess_the_random_number_fixed.sol:GuessTheRandomNumberChallenge
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'GuessTheRandomNumberChallenge':
+    |
+    |    //Guess the modulo of the blockhash 20 blocks from your guess
+  > |    function guess(uint8 _guess) public payable {
+    |        require(msg.value == 1 ether);
+    |        commitedGuess = _guess;
+  at cases//guess_the_random_number_fixed.sol(23)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'GuessTheRandomNumberChallenge':
+    |
+    |      if(uint(blockhash(commitBlock+20)) == commitedGuess){
+  > |        msg.sender.transfer(2 ether);
+    |      }
+    |    }
+  at cases//guess_the_random_number_fixed.sol(35)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'GuessTheRandomNumberChallenge':
+    |    function guess(uint8 _guess) public payable {
+    |        require(msg.value == 1 ether);
+  > |        commitedGuess = _guess;
+    |        commitBlock = block.number;
+    |        guesser = msg.sender;
+  at cases//guess_the_random_number_fixed.sol(25)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'GuessTheRandomNumberChallenge':
+    |        require(msg.value == 1 ether);
+    |        commitedGuess = _guess;
+  > |        commitBlock = block.number;
+    |        guesser = msg.sender;
+    |    }
+  at cases//guess_the_random_number_fixed.sol(26)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'GuessTheRandomNumberChallenge':
+    |        commitedGuess = _guess;
+    |        commitBlock = block.number;
+  > |        guesser = msg.sender;
+    |    }
+    |    function recover() public {
+  at cases//guess_the_random_number_fixed.sol(27)
+
+Processing contract: cases//dos_number.sol:DosNumber
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for LockedEther in contract 'DosNumber':
+    |// pragma solidity ^0.4.25;
+    |
+  > |contract DosNumber {
+    |
+    |    uint numElements = 0;
+  at cases//dos_number.sol(3)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosNumber':
+    |// pragma solidity ^0.4.25;
+    |
+  > |contract DosNumber {
+    |
+    |    uint numElements = 0;
+  at cases//dos_number.sol(3)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosNumber':
+    |                array.length += 1;
+    |            }
+  > |            array[numElements++] = value;
+    |        }
+    |    }
+  at cases//dos_number.sol(15)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosNumber':
+    |    function clear() public {
+    |        require(numElements>1500);
+  > |        numElements = 0;
+    |    }
+    |
+  at cases//dos_number.sol(21)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosNumber':
+    |        require(numElements>1500);
+    |        array = new uint[](0);
+  > |        numElements = 0;
+    |    }
+    |
+  at cases//dos_number.sol(30)
+
+Processing contract: cases//integer_overflow_1.sol:Overflow
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'Overflow':
+    |    uint private sellerBalance=0;
+    |    
+  > |    function add(uint value) returns (bool){
+    |        sellerBalance += value; // possible overflow
+    |
+  at cases//integer_overflow_1.sol(6)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'Overflow':
+    |    
+    |    function add(uint value) returns (bool){
+  > |        sellerBalance += value; // possible overflow
+    |
+    |        // possible auditor assert
+  at cases//integer_overflow_1.sol(7)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'Overflow':
+    |    function safe_add(uint value) returns (bool){
+    |        require(value + sellerBalance >= sellerBalance);
+  > |        sellerBalance += value; 
+    |    } 
+    |}
+  at cases//integer_overflow_1.sol(15)
+
+Processing contract: cases//integer_overflow_mapping_sym_1.sol:IntegerOverflowMappingSym1
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'IntegerOverflowMappingSym1':
+    |    mapping(uint256 => uint256) map;
+    |
+  > |    function init(uint256 k, uint256 v) public {
+    |        map[k] -= v;
+    |    }
+  at cases//integer_overflow_mapping_sym_1.sol(8)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMappingSym1':
+    |
+    |    function init(uint256 k, uint256 v) public {
+  > |        map[k] -= v;
+    |    }
+    |}
+  at cases//integer_overflow_mapping_sym_1.sol(9)
+
+Processing contract: cases//list_dos.sol:CrowdFundBad
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//list_dos.sol:CrowdFundPull
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//list_dos.sol:CrowdFundSafe
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'CrowdFundBad':
+    |contract CrowdFundBad {
+    |  address[] private refundAddresses;
+  > |  mapping(address => uint) public refundAmount;
+    |
+    |  function refundDos() public {
+  at cases//list_dos.sol(5)
+
+[33mWarning[0m for TODAmount in contract 'CrowdFundBad':
+    |  function refundDos() public {
+    |    for(uint i; i < refundAddresses.length; i++) {
+  > |        refundAddresses[i].transfer(refundAmount[refundAddresses[i]]);
+    |        //{
+    |          //return;
+  at cases//list_dos.sol(9)
+
+[33mWarning[0m for TODReceiver in contract 'CrowdFundBad':
+    |  function refundDos() public {
+    |    for(uint i; i < refundAddresses.length; i++) {
+  > |        refundAddresses[i].transfer(refundAmount[refundAddresses[i]]);
+    |        //{
+    |          //return;
+  at cases//list_dos.sol(9)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'CrowdFundBad':
+    |  function refundDos() public {
+    |    for(uint i; i < refundAddresses.length; i++) {
+  > |        refundAddresses[i].transfer(refundAmount[refundAddresses[i]]);
+    |        //{
+    |          //return;
+  at cases//list_dos.sol(9)
+
+[31mViolation[0m for MissingInputValidation in contract 'CrowdFundPull':
+    |contract CrowdFundPull {
+    |  address[] private refundAddresses;
+  > |  mapping(address => uint) public refundAmount;
+    |
+    |  function withdraw() external {
+  at cases//list_dos.sol(19)
+
+[33mWarning[0m for TODAmount in contract 'CrowdFundPull':
+    |    uint refund = refundAmount[msg.sender];
+    |    refundAmount[msg.sender] = 0;
+  > |    msg.sender.transfer(refund);
+    |  }
+    |}
+  at cases//list_dos.sol(24)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'CrowdFundPull':
+    |    uint refund = refundAmount[msg.sender];
+    |    refundAmount[msg.sender] = 0;
+  > |    msg.sender.transfer(refund);
+    |  }
+    |}
+  at cases//list_dos.sol(24)
+
+[31mViolation[0m for DAO in contract 'CrowdFundSafe':
+    |    uint256 i = nextIdx;
+    |    while(i < refundAddresses.length && msg.gas > 200000) {
+  > |      refundAddresses[i].transfer(refundAmount[refundAddresses[i]]);
+    |      i++;
+    |    }
+  at cases//list_dos.sol(39)
+
+[31mViolation[0m for MissingInputValidation in contract 'CrowdFundSafe':
+    |contract CrowdFundSafe {
+    |  address[] private refundAddresses;
+  > |  mapping(address => uint) public refundAmount;
+    |  uint256 nextIdx;
+    |  
+  at cases//list_dos.sol(33)
+
+[33mWarning[0m for TODAmount in contract 'CrowdFundSafe':
+    |    uint256 i = nextIdx;
+    |    while(i < refundAddresses.length && msg.gas > 200000) {
+  > |      refundAddresses[i].transfer(refundAmount[refundAddresses[i]]);
+    |      i++;
+    |    }
+  at cases//list_dos.sol(39)
+
+[33mWarning[0m for TODReceiver in contract 'CrowdFundSafe':
+    |    uint256 i = nextIdx;
+    |    while(i < refundAddresses.length && msg.gas > 200000) {
+  > |      refundAddresses[i].transfer(refundAmount[refundAddresses[i]]);
+    |      i++;
+    |    }
+  at cases//list_dos.sol(39)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'CrowdFundSafe':
+    |    uint256 i = nextIdx;
+    |    while(i < refundAddresses.length && msg.gas > 200000) {
+  > |      refundAddresses[i].transfer(refundAmount[refundAddresses[i]]);
+    |      i++;
+    |    }
+  at cases//list_dos.sol(39)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'CrowdFundSafe':
+    |      i++;
+    |    }
+  > |    nextIdx = i;
+    |  }
+    |}
+  at cases//list_dos.sol(42)
+
+Processing contract: cases//overflow_simple_add.sol:Overflow_Add
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'Overflow_Add':
+    |    uint public balance = 1;
+    |
+  > |    function add(uint256 deposit) public {
+    |        balance += deposit;
+    |    }
+  at cases//overflow_simple_add.sol(6)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'Overflow_Add':
+    |
+    |    function add(uint256 deposit) public {
+  > |        balance += deposit;
+    |    }
+    |}
+  at cases//overflow_simple_add.sol(7)
+
+Processing contract: cases//integer_overflow_mul.sol:IntegerOverflowMul
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'IntegerOverflowMul':
+    |    uint public count = 2;
+    |
+  > |    function run(uint256 input) public {
+    |        count *= input;
+    |    }
+  at cases//integer_overflow_mul.sol(9)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMul':
+    |
+    |    function run(uint256 input) public {
+  > |        count *= input;
+    |    }
+    |}
+  at cases//integer_overflow_mul.sol(10)
+
+Processing contract: cases//integer_overflow_mapping_sym_1_fixed.sol:IntegerOverflowMappingSym1
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'IntegerOverflowMappingSym1':
+    |    mapping(uint256 => uint256) map;
+    |
+  > |    function init(uint256 k, uint256 v) public {
+    |        map[k] = sub(map[k], v);
+    |    }
+  at cases//integer_overflow_mapping_sym_1_fixed.sol(9)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMappingSym1':
+    |
+    |    function init(uint256 k, uint256 v) public {
+  > |        map[k] = sub(map[k], v);
+    |    }
+    |
+  at cases//integer_overflow_mapping_sym_1_fixed.sol(10)
+
+Processing contract: cases//modifier_reentrancy_fixed.sol:Bank
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//modifier_reentrancy_fixed.sol:ModifierEntrancy
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'ModifierEntrancy':
+    |
+    |contract ModifierEntrancy {
+  > |  mapping (address => uint) public tokenBalance;
+    |  string constant name = "Nu Token";
+    |
+  at cases//modifier_reentrancy_fixed.sol(4)
+
+Processing contract: cases//overflow_simple_add_fixed.sol:Overflow_Add
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedWrite in contract 'Overflow_Add':
+    |
+    |    function add(uint256 deposit) public {
+  > |        balance = add(balance, deposit);
+    |    }
+    |
+  at cases//overflow_simple_add_fixed.sol(7)
+
+Processing contract: cases//integer_overflow_minimal_fixed.sol:IntegerOverflowMinimal
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMinimal':
+    |
+    |    function run(uint256 input) public {
+  > |        count = sub(count,input);
+    |    }
+    |
+  at cases//integer_overflow_minimal_fixed.sol(11)
+
+Processing contract: cases//integer_overflow_multitx_multifunc_feasible.sol:IntegerOverflowMultiTxMultiFuncFeasible
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'IntegerOverflowMultiTxMultiFuncFeasible':
+    |    }
+    |
+  > |    function run(uint256 input) {
+    |        if (initialized == 0) {
+    |            return;
+  at cases//integer_overflow_multitx_multifunc_feasible.sol(19)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxMultiFuncFeasible':
+    |
+    |    function init() public {
+  > |        initialized = 1;
+    |    }
+    |
+  at cases//integer_overflow_multitx_multifunc_feasible.sol(16)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxMultiFuncFeasible':
+    |        }
+    |
+  > |        count -= input;
+    |    }
+    |}
+  at cases//integer_overflow_multitx_multifunc_feasible.sol(24)
+
+Processing contract: cases//simple_dao_fixed.sol:SimpleDAO
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'SimpleDAO':
+    |
+    |contract SimpleDAO {
+  > |  mapping (address => uint) public credit;
+    |    
+    |  function donate(address to) payable public{
+  at cases//simple_dao_fixed.sol(8)
+
+[31mViolation[0m for MissingInputValidation in contract 'SimpleDAO':
+    |  mapping (address => uint) public credit;
+    |    
+  > |  function donate(address to) payable public{
+    |    credit[to] += msg.value;
+    |  }
+  at cases//simple_dao_fixed.sol(10)
+
+[31mViolation[0m for MissingInputValidation in contract 'SimpleDAO':
+    |  }  
+    |
+  > |  function queryCredit(address to) view public returns (uint){
+    |    return credit[to];
+    |  }
+  at cases//simple_dao_fixed.sol(21)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleDAO':
+    |    if (credit[msg.sender]>= amount) {
+    |      credit[msg.sender]-=amount;
+  > |      require(msg.sender.call.value(amount)());
+    |    }
+    |  }  
+  at cases//simple_dao_fixed.sol(17)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SimpleDAO':
+    |    
+    |  function donate(address to) payable public{
+  > |    credit[to] += msg.value;
+    |  }
+    |    
+  at cases//simple_dao_fixed.sol(11)
+
+Processing contract: cases//auction.sol:DosAuction
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//auction.sol:SecureAuction
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[33mWarning[0m for DAOConstantGas in contract 'DosAuction':
+    |    if (currentFrontrunner != 0) {
+    |      //E.g. if recipients fallback function is just revert()
+  > |      require(currentFrontrunner.send(currentBid));
+    |    }
+    |
+  at cases//auction.sol(16)
+
+[31mViolation[0m for TODAmount in contract 'DosAuction':
+    |    if (currentFrontrunner != 0) {
+    |      //E.g. if recipients fallback function is just revert()
+  > |      require(currentFrontrunner.send(currentBid));
+    |    }
+    |
+  at cases//auction.sol(16)
+
+[31mViolation[0m for TODReceiver in contract 'DosAuction':
+    |    if (currentFrontrunner != 0) {
+    |      //E.g. if recipients fallback function is just revert()
+  > |      require(currentFrontrunner.send(currentBid));
+    |    }
+    |
+  at cases//auction.sol(16)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'DosAuction':
+    |    if (currentFrontrunner != 0) {
+    |      //E.g. if recipients fallback function is just revert()
+  > |      require(currentFrontrunner.send(currentBid));
+    |    }
+    |
+  at cases//auction.sol(16)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosAuction':
+    |    }
+    |
+  > |    currentFrontrunner = msg.sender;
+    |    currentBid         = msg.value;
+    |  }
+  at cases//auction.sol(19)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosAuction':
+    |
+    |    currentFrontrunner = msg.sender;
+  > |    currentBid         = msg.value;
+    |  }
+    |}
+  at cases//auction.sol(20)
+
+[33mWarning[0m for TODAmount in contract 'SecureAuction':
+    |    refunds[msg.sender] = 0;
+    |
+  > |    msg.sender.send(refund);
+    |  }
+    |}
+  at cases//auction.sol(51)
+
+[31mViolation[0m for UnhandledException in contract 'SecureAuction':
+    |    refunds[msg.sender] = 0;
+    |
+  > |    msg.sender.send(refund);
+    |  }
+    |}
+  at cases//auction.sol(51)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SecureAuction':
+    |    refunds[msg.sender] = 0;
+    |
+  > |    msg.sender.send(refund);
+    |  }
+    |}
+  at cases//auction.sol(51)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SecureAuction':
+    |
+    |    if (currentFrontrunner != 0) {
+  > |      refunds[currentFrontrunner] += currentBid;
+    |    }
+    |
+  at cases//auction.sol(37)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SecureAuction':
+    |    }
+    |
+  > |    currentFrontrunner = msg.sender;
+    |    currentBid         = msg.value;
+    |  }
+  at cases//auction.sol(40)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SecureAuction':
+    |
+    |    currentFrontrunner = msg.sender;
+  > |    currentBid         = msg.value;
+    |  }
+    |
+  at cases//auction.sol(41)
+
+Processing contract: cases//SpankChain.sol:HumanStandardToken
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//SpankChain.sol:StandardToken
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: cases//SpankChain.sol:Token
+[31mViolation[0m for LockedEther in contract 'HumanStandardToken':
+    |
+    |.*/
+  > |contract HumanStandardToken is StandardToken {
+    |
+    |    /* Public variables of the token */
+  at cases//SpankChain.sol(116)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |contract StandardToken is Token {
+    |
+  > |    function transfer(address _to, uint256 _value) returns (bool success) {
+    |        //Default assumes totalSupply can't be over max (2^256 - 1).
+    |        //If your token leaves out totalSupply and can issue more tokens as time goes on, you need to check if it doesn't wrap.
+  at cases//SpankChain.sol(63)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
+    |        //same as above. Replace this line with the following if you want to protect against wrapping uints.
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+  at cases//SpankChain.sol(75)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function balanceOf(address _owner) constant returns (uint256 balance) {
+    |        return balances[_owner];
+    |    }
+  at cases//SpankChain.sol(86)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function approve(address _spender, uint256 _value) returns (bool success) {
+    |        allowed[msg.sender][_spender] = _value;
+    |        Approval(msg.sender, _spender, _value);
+  at cases//SpankChain.sol(90)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |    }
+    |
+  > |    function allowance(address _owner, address _spender) constant returns (uint256 remaining) {
+    |      return allowed[_owner][_spender];
+    |    }
+  at cases//SpankChain.sol(96)
+
+[31mViolation[0m for MissingInputValidation in contract 'HumanStandardToken':
+    |
+    |    /* Approves and then calls the receiving contract */
+  > |    function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+    |        allowed[msg.sender][_spender] = _value;
+    |        Approval(msg.sender, _spender, _value);
+  at cases//SpankChain.sol(145)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HumanStandardToken':
+    |        require(balances[msg.sender] >= _value);
+    |        balances[msg.sender] -= _value;
+  > |        balances[_to] += _value;
+    |        Transfer(msg.sender, _to, _value);
+    |        return true;
+  at cases//SpankChain.sol(70)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HumanStandardToken':
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+  > |        balances[_to] += _value;
+    |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+  at cases//SpankChain.sol(79)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HumanStandardToken':
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+    |        balances[_to] += _value;
+  > |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+    |        Transfer(_from, _to, _value);
+  at cases//SpankChain.sol(80)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |contract StandardToken is Token {
+    |
+  > |    function transfer(address _to, uint256 _value) returns (bool success) {
+    |        //Default assumes totalSupply can't be over max (2^256 - 1).
+    |        //If your token leaves out totalSupply and can issue more tokens as time goes on, you need to check if it doesn't wrap.
+  at cases//SpankChain.sol(63)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
+    |        //same as above. Replace this line with the following if you want to protect against wrapping uints.
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+  at cases//SpankChain.sol(75)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function balanceOf(address _owner) constant returns (uint256 balance) {
+    |        return balances[_owner];
+    |    }
+  at cases//SpankChain.sol(86)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function approve(address _spender, uint256 _value) returns (bool success) {
+    |        allowed[msg.sender][_spender] = _value;
+    |        Approval(msg.sender, _spender, _value);
+  at cases//SpankChain.sol(90)
+
+[31mViolation[0m for MissingInputValidation in contract 'StandardToken':
+    |    }
+    |
+  > |    function allowance(address _owner, address _spender) constant returns (uint256 remaining) {
+    |      return allowed[_owner][_spender];
+    |    }
+  at cases//SpankChain.sol(96)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StandardToken':
+    |        require(balances[msg.sender] >= _value);
+    |        balances[msg.sender] -= _value;
+  > |        balances[_to] += _value;
+    |        Transfer(msg.sender, _to, _value);
+    |        return true;
+  at cases//SpankChain.sol(70)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StandardToken':
+    |        //require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && balances[_to] + _value > balances[_to]);
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+  > |        balances[_to] += _value;
+    |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+  at cases//SpankChain.sol(79)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StandardToken':
+    |        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value);
+    |        balances[_to] += _value;
+  > |        balances[_from] -= _value;
+    |        allowed[_from][msg.sender] -= _value;
+    |        Transfer(_from, _to, _value);
+  at cases//SpankChain.sol(80)
+
+Processing contract: cases//dos_simple.sol:DosOneFunc
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedWrite in contract 'DosOneFunc':
+    |// pragma solidity ^0.4.25;
+    |
+  > |contract DosOneFunc {
+    |
+    |    address[] listAddresses;
+  at cases//dos_simple.sol(3)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DosOneFunc':
+    |
+    |            for(uint i=0;i<350;i++) {
+  > |                listAddresses.push(msg.sender);
+    |            }
+    |            return true;
+  at cases//dos_simple.sol(11)
+
+Processing contract: cases//integer_overflow_multitx_onefunc_feasible_fixed.sol:IntegerOverflowMultiTxOneFuncFeasible
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxOneFuncFeasible':
+    |    function run(uint256 input) public {
+    |        if (initialized == 0) {
+  > |            initialized = 1;
+    |            return;
+    |        }
+  at cases//integer_overflow_multitx_onefunc_feasible_fixed.sol(18)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxOneFuncFeasible':
+    |        }
+    |
+  > |        count = sub(count, input);
+    |    }
+    |
+  at cases//integer_overflow_multitx_onefunc_feasible_fixed.sol(22)
+
+Processing contract: cases//integer_overflow_multitx_onefunc_infeasible.sol:IntegerOverflowMultiTxOneFuncInfeasible
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'IntegerOverflowMultiTxOneFuncInfeasible':
+    |    uint256 public count = 1;
+    |
+  > |    function run(uint256 input) public {
+    |        if (initialized == 0) {
+    |            return;
+  at cases//integer_overflow_multitx_onefunc_infeasible.sol(15)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxOneFuncInfeasible':
+    |        }
+    |
+  > |        count -= input;
+    |    }
+    |}
+  at cases//integer_overflow_multitx_onefunc_infeasible.sol(20)
+
+Processing contract: cases//old_blockhash_fixed.sol:PredictTheBlockHashChallenge
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'PredictTheBlockHashChallenge':
+    |    }
+    |
+  > |    function lockInGuess(bytes32 hash) public payable {
+    |        require(guesses[msg.sender].block == 0);
+    |        require(msg.value == 1 ether);
+  at cases//old_blockhash_fixed.sol(18)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PredictTheBlockHashChallenge':
+    |          guesses[msg.sender].block = 0;
+    |          if (guesses[msg.sender].guess == answer) {
+  > |              msg.sender.transfer(2 ether);
+    |          }
+    |        }
+  at cases//old_blockhash_fixed.sol(35)
+
+Processing contract: cases//guess_the_random_number.sol:GuessTheRandomNumberChallenge
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'GuessTheRandomNumberChallenge':
+    |
+    |        if (n == answer) {
+  > |            msg.sender.transfer(2 ether);
+    |        }
+    |    }
+  at cases//guess_the_random_number.sol(25)
+
+Processing contract: cases//integer_overflow_multitx_onefunc_feasible.sol:IntegerOverflowMultiTxOneFuncFeasible
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for MissingInputValidation in contract 'IntegerOverflowMultiTxOneFuncFeasible':
+    |    uint256 public count = 1;
+    |
+  > |    function run(uint256 input) public {
+    |        if (initialized == 0) {
+    |            initialized = 1;
+  at cases//integer_overflow_multitx_onefunc_feasible.sol(15)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxOneFuncFeasible':
+    |    function run(uint256 input) public {
+    |        if (initialized == 0) {
+  > |            initialized = 1;
+    |            return;
+    |        }
+  at cases//integer_overflow_multitx_onefunc_feasible.sol(17)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'IntegerOverflowMultiTxOneFuncFeasible':
+    |        }
+    |
+  > |        count -= input;
+    |    }
+    |}
+  at cases//integer_overflow_multitx_onefunc_feasible.sol(21)
+
+Processing contract: cases//simple_dao.sol:SimpleDAO
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'SimpleDAO':
+    |  function withdraw(uint amount) public{
+    |    if (credit[msg.sender]>= amount) {
+  > |      require(msg.sender.call.value(amount)());
+    |      credit[msg.sender]-=amount;
+    |    }
+  at cases//simple_dao.sol(16)
+
+[31mViolation[0m for MissingInputValidation in contract 'SimpleDAO':
+    |
+    |contract SimpleDAO {
+  > |  mapping (address => uint) public credit;
+    |    
+    |  function donate(address to) payable public{
+  at cases//simple_dao.sol(8)
+
+[31mViolation[0m for MissingInputValidation in contract 'SimpleDAO':
+    |  mapping (address => uint) public credit;
+    |    
+  > |  function donate(address to) payable public{
+    |    credit[to] += msg.value;
+    |  }
+  at cases//simple_dao.sol(10)
+
+[31mViolation[0m for MissingInputValidation in contract 'SimpleDAO':
+    |  }  
+    |
+  > |  function queryCredit(address to) view public returns(uint){
+    |    return credit[to];
+    |  }
+  at cases//simple_dao.sol(21)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleDAO':
+    |  function withdraw(uint amount) public{
+    |    if (credit[msg.sender]>= amount) {
+  > |      require(msg.sender.call.value(amount)());
+    |      credit[msg.sender]-=amount;
+    |    }
+  at cases//simple_dao.sol(16)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SimpleDAO':
+    |    
+    |  function donate(address to) payable public{
+  > |    credit[to] += msg.value;
+    |  }
+    |    
+  at cases//simple_dao.sol(11)
+

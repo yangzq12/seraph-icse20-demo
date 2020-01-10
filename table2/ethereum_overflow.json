@@ -1,0 +1,26 @@
+{
+ "vulnerabilities": {
+  "reentrancy": [], 
+  "prng_bug": [], 
+  "tod_bug": [], 
+  "dos_bug": [], 
+  "integer_overflow": [
+   {
+    "bug_abstract": "559:ADD:Integer Overflow", 
+    "bug_test_case": "{'callReturn': {}, 'input': {'Id_0_15': '16156842317565293874272834530371880720966471053262404558597773956279093428224', 'Id_size_7': '4', 'Id_amount': '115792047826838114680188259277325199545873807361414427991972470905585860083711'}, 'state': {'Ia_store-some_var_2_557-balances[to_account]_558': '1', 'Iv': '0'}, 'other': {}, 'block': {}}", 
+    "bug_cfg": "./tmp/tmp/1.png", 
+    "bug_line": "13:26: Warning: balances[to_account] = balances[to_account] + amount"
+   }
+  ], 
+  "integer_underflow": [
+   {
+    "bug_abstract": "428:SUB:Integer Underflow", 
+    "bug_test_case": "{'callReturn': {}, 'input': {'Id_0_15': '74301149977583154961863820173841982574387150310566360623589186892333265715200', 'Id_size_7': '4', 'Id_amount': '1'}, 'state': {'Ia_store-some_var_1_426-balances[from_account]_427': '0', 'Iv': '0'}, 'other': {}, 'block': {}}", 
+    "bug_cfg": "./tmp/tmp/2.png", 
+    "bug_line": "12:28: Warning: balances[from_account] = balances[from_account] - amount"
+   }
+  ]
+ }, 
+ "run_time": "2.13s", 
+ "evm_code_coverage": "99.7"
+}

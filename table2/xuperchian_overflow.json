@@ -1,0 +1,26 @@
+{
+ "wasm_code_coverage": "4.4",
+ "vulnerabilities": {
+  "integer_underflow": [
+  {
+    "bug_abstract": "268:54:i32.sub",
+    "bug_test_case": "{'callReturn': {'call_211_10': 0}, 'input': {'argv_some_var_231': 1}, 'state': {}, 'other': {}, 'block': {}}",
+    "bug_cfg": "result/tmp/1.png",
+    "bug_line": "33:31: Warning:    from_balance = from_balance - token;"
+  }
+ ],
+  "integer_overflow": [
+  {
+    "bug_abstract": "268:72:i32.add",
+    "bug_test_case": "{'callReturn': {'call_268_10': 95965554340246284115330549670910525334005997184322698895647295956623114104108}, 'input': {'argv_some_var_231': 31011707139343417289831185728629623161848798098422274988850594907005005075158}, 'state': {}, 'other': {}, 'block': {}}",
+    "bug_cfg": "tmp/2.png",
+    "bug_line": "34:31: Warning:    to_balance = to_balance + token;"
+  }
+ ],
+  "reentrancy": [],
+  "prng_bug": [],
+  "dos_bug": [],
+  "tod_bug": []
+ },
+ "run_time": "3.10s"
+}

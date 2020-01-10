@@ -1,0 +1,440 @@
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/random_number_generator.sol:RandomNumberGenerator:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 100.0%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/random_number_generator.sol:RandomNumberGenerator.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/SpankChain_Payment.sol:ECTools:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 89.1%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/SpankChain_Payment.sol:ECTools.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/SpankChain_Payment.sol:HumanStandardToken:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 2
+INFO:root:Bug Abstract: 3077:ADD:Integer Overflow
+INFO:root:Bug Line: 183:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '76450787359836037641860180984291677749980919077056822294353438043884394381312', 'Id_36_1084': '93197768905015291022582589378728101771372192484987306756342212446393647927717', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_20_2916-balances[msg.sender]_2917': '93197768905015291022582589378728101771372192484987306756342212446393647927717', 'Ia_store-some_var_21_3071-balances[_to]_3076': '40517734865665682103624446881471114508005968927831311829973926242952344820941', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 2108:ADD:Integer Overflow
+INFO:root:Bug Line: 192:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '16156842317565293874272834530371880720966471053262404558597773956279093428224', 'Id_size_7': '4', 'Id_68_559': '115792047826838114680188259277325199545873807361414427991972470905585860083711'}, 'state': {'Ia_store-some_var_9_2023-allowed[_from][msg.sender]_2024': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Ia_store-some_var_7_1888-balances[_from]_1889': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Ia_store-some_var_10_2102-balances[_to]_2107': '115792034023345421099060237949358386738281272158793531385764201831789808844799', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/SpankChain_Payment.sol:HumanStandardToken.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/SpankChain_Payment.sol:LedgerChannel:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 82.9%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/SpankChain_Payment.sol:LedgerChannel.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/SpankChain_Payment.sol:StandardToken:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.9%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 2
+INFO:root:Bug Abstract: 1877:ADD:Integer Overflow
+INFO:root:Bug Line: 183:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '76450787359836037641860180984291677749980919077056822294353438043884394381312', 'Id__value': '93197768905015291022582589378728101771372192484987306756342212446393647927717', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_9_1871-balances[_to]_1876': '40517734865665682103624446881471114508005968927831311829973926242952344820941', 'Iv': '0', 'Ia_store-some_var_8_1716-balances[msg.sender]_1717': '93197768905015291022582589378728101771372192484987306756342212446393647927717'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 1243:ADD:Integer Overflow
+INFO:root:Bug Line: 192:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '16156842317565293874272834530371880720966471053262404558597773956279093428224', 'Id__value': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_3_1023-balances[_from]_1024': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Ia_store-some_var_6_1237-balances[_to]_1242': '115792034023345421099060237949358386738281272158793531385764201831789808844799', 'Ia_store-some_var_5_1158-allowed[_from][msg.sender]_1159': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Case: Reentrancy: 1
+INFO:root:Bug Abstract: 11979:CALL:recipient in-direct taint
+INFO:root:Bug Line: 422:15: Warning:       require(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0], Channels[_lcID].erc20Balances[0]),"CreateChannel: token transfer failure");
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '20853193852723734048814770637610870652489083209607696777694672748161462697984', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968', 'Id_amount': '1'}, 'state': {'Ia_store-some_var_2_517-Channels[msg.sender]_518': '57896044618658097711785492504343953926634992332820282019728792003956564819968', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/SpankChain_Payment.sol:StandardToken.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/sendloop.sol:Refunder:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 98.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Denial-of-Service: 1
+INFO:root:Bug Abstract: 442:JUMPI:a function wait for call return bool to continue otherwise revert
+INFO:root:Bug Line: 22:13: Warning:             require(refundAddresses[x].send(refunds[refundAddresses[x]]))
+INFO:root:Bug test case: {'callReturn': {'call_return_bool_431': '1'}, 'input': {'Id_0_15': '25738445700114791945507279708794111204291930093052692871076065168184234213376', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-0-refundAddresses.length_198': '7', 'Iv': '0'}, 'other': {'some_var_4_431': '0', 'some_var_7_431': '0'}, 'block': {}}
+INFO:root:Wrote results to ./tmp/sendloop.sol:Refunder.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_minimal.sol:IntegerOverflowMinimal:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.2%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Underflow: 1
+INFO:root:Bug Abstract: 174:SUB:Integer Underflow
+INFO:root:Bug Line: 10:9: Warning:         count -= input
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_14': '74301149977583154961863820173841982574387150310566360623589186892333265715200', 'Id_input': '1', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Iv': '0', 'Ia_store-0-count_173': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/integer_overflow_minimal.sol:IntegerOverflowMinimal.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/DAO.sol:DAO:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 17.6%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Underflow: 1
+INFO:root:Bug Abstract: 18636:SUB:Integer Underflow
+INFO:root:Bug Line: 934:13: Warning:             sumOfProposalDeposits -= p.proposalDeposit
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '16054597825187938426027791457001977339441559802162840761626660239656961966080', 'Ia_store-4 + 14*Id__proposalID + some_var_8_5445-5498_0': '255', 'Ia_store-14*Id__proposalID + some_var_8_5445-5591_0': '1461501637330902918203684832716283019655932542975', 'Ia_store-7 + 14*Id__proposalID + some_var_8_5445-5460_0': '255', 'Ia_store-3 + 14*Id__proposalID + some_var_8_5445-5521_0': '72370055773322622139731865630429942408293740416025352524660990004945703692160', 'Ia_store-6 + 14*Id__proposalID + some_var_8_5445-18628_0': '1', 'Id_size_7': '4', 'Id__proposalID': '0', 'Ia_store-5 + 14*Id__proposalID + some_var_8_5445-5806_0': '0'}, 'state': {'Ia_store-some_var_11_18742-allowedRecipients[_recipient]_18746': '0', 'Ia_store-18-extraBalance_18768': '0', 'Iv': '0', 'Ia_store-13-sumOfProposalDeposits_18635': '0', 'Ia_store-0-proposals[_proposalID]_5426': '1'}, 'other': {'some_var_10_5797': '0', 'mem_128_5704': '31'}, 'block': {'IH_s': '72370055773322622139731865630429942408293740416025352524660990004945706024959'}}
+INFO:root:Wrote results to ./tmp/DAO.sol:DAO.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/DAO.sol:DAO_Creator:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 1.6%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/DAO.sol:DAO_Creator.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/DAO.sol:ManagedAccount:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/DAO.sol:ManagedAccount.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/DAO.sol:Token:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.3%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 2
+INFO:root:Bug Abstract: 1918:ADD:Integer Overflow
+INFO:root:Bug Line: 103:13: Warning:             balances[_to] += _amount
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '76450787359836037641860180984291677749980919077056822294353438043884394381312', 'Id_size_7': '4', 'Id__amount': '90749431003941375403179733291624552310764333611012068162461605057687901041493'}, 'state': {'Ia_store-some_var_9_1912-balances[_to]_1917': '47430361493709298055680693583728414834725303034482820799165364156957970328149', 'Ia_store-some_var_8_1753-balances[msg.sender]_1754': '90749431003941375403179733291624552310764333611012068162461605057687901041493', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 1260:ADD:Integer Overflow
+INFO:root:Bug Line: 121:13: Warning:             balances[_to] += _amount
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '16156842317565293874272834530371880720966471053262404558597773956279093428224', 'Id_size_7': '4', 'Id__amount': '115792047826838114680188259277325199545873807361414427991972470905585860083711'}, 'state': {'Ia_store-some_var_3_1035-balances[_from]_1036': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Ia_store-some_var_5_1170-allowed[_from][msg.sender]_1171': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Ia_store-some_var_6_1254-balances[_to]_1259': '115792034023345421099060237949358386738281272158793531385764201831789808844799', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/DAO.sol:Token.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/DAO.sol:TokenCreation:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 85.4%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Reentrancy: 1
+INFO:root:Bug Abstract: 3151:CALL:recipient direct taint
+INFO:root:Bug Line: 326:17: Warning:             if (msg.sender.call.value(weiGiven[msg.sender])()
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '40280764948130515943693723115001900279952904525435421354016765613218491006976', 'Id_size_7': '4'}, 'state': {'Ia_store-0-closingTime_2308': '0', 'Ia_store-2-isFueled_2323': '0', 'code_size_Concat(0, Extract(159, 0, Ia_store-3-extraBalance_2346))_2462': '115792089237316195423570985008687907853269984665640564039457584007913129639935', 'balance_9_2591': '95346918756310292697882537094886449535797654316421409133056955209608488550399', 'Iv': '0'}, 'other': {'some_var_8_2502': '32'}, 'block': {'IH_s': '1'}}
+INFO:root:Case: Integer Overflow: 2
+INFO:root:Bug Abstract: 3841:ADD:Integer Overflow
+INFO:root:Bug Line: 103:13: Warning:             balances[_to] += _amount
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '76450787359836037641860180984291677749980919077056822294353438043884394381312', 'Id_36_875': '90749431003941375403179733291624552310764333611012068162461605057687901041493', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_21_3674-balances[msg.sender]_3675': '90749431003941375403179733291624552310764333611012068162461605057687901041493', 'Ia_store-some_var_22_3835-balances[_to]_3840': '47430361493709298055680693583728414834725303034482820799165364156957970328149', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 1941:ADD:Integer Overflow
+INFO:root:Bug Line: 121:13: Warning:             balances[_to] += _amount
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '16156842317565293874272834530371880720966471053262404558597773956279093428224', 'Id_68_621': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_6_1935-balances[_to]_1940': '115792034023345421099060237949358386738281272158793531385764201831789808844799', 'Ia_store-some_var_3_1715-balances[_from]_1716': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Ia_store-some_var_5_1850-allowed[_from][msg.sender]_1851': '115792047826838114680188259277325199545873807361414427991972470905585860083711', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/DAO.sol:TokenCreation.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_mul_fixed.sol:IntegerOverflowMul:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 98.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/integer_overflow_mul_fixed.sol:IntegerOverflowMul.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/modifier_reentrancy.sol:Bank:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 87.7%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/modifier_reentrancy.sol:Bank.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/modifier_reentrancy.sol:ModifierEntrancy:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 92.5%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/modifier_reentrancy.sol:ModifierEntrancy.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_multitx_multifunc_feasible_fixed.sol:IntegerOverflowMultiTxMultiFuncFeasible:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.5%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/integer_overflow_multitx_multifunc_feasible_fixed.sol:IntegerOverflowMultiTxMultiFuncFeasible.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /home/yangzq18/test/dos_address.sol:DosGas:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 77.5%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Denial-of-Service: 1
+INFO:root:Bug Abstract: 103: JUMPDEST  :dos caused by loop gas limit
+INFO:root:Bug Line: 8:5: Warning:     function emptyCreditors() public {
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '6118670728450586357679874950098127919083649248996303988879934163001305726976', 'Id_size_7': '4'}, 'state': {'Iv': '0', 'Ia_store-0-creditorAddresses.length_270': '109007396508567199597971098660592274722979034652465888016689622152150685582813'}, 'other': {'some_var_1_569': '6784692728748995825599874375474220115534244088588526410977464834363051999231'}, 'block': {}}
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/old_blockhash.sol:PredictTheBlockHashChallenge:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.7%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Pseudorandom Generator: 1
+INFO:root:Bug Abstract: 498:CALL:pathcondition
+INFO:root:Bug Line: 33:13: Warning:             msg.sender.transfer(2 ether)
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '8075158506476908367434426355020631875308557969868903053028082540882601967616', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-1 + some_var_1_204-guesses[msg.sender].guess_432': '0', 'Iv': '0', 'Ia_store-some_var_1_204-guesses[msg.sender].block_208': '2199023255297'}, 'other': {}, 'block': {'IH_blockhash': '0', 'IH_i': '57896044618658097711785492504343953926634992332820282019728792006155588075520'}}
+INFO:root:Wrote results to ./tmp/old_blockhash.sol:PredictTheBlockHashChallenge.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/theRun.sol:theRun:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 57.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Pseudorandom Generator: 1
+INFO:root:Bug Abstract: 578:CALL:pathcondition
+INFO:root:Bug Line: 46:15: Warning:               msg.sender.send(msg.value- (20 ether));
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '8075158506476908367434426355020631875308557969868903053028082540882601967616', 'Id_size_7': '4'}, 'state': {'Ia_store-1 + some_var_1_206-guesses[msg.sender].guess_512': '0', 'Ia_store-some_var_1_206-guesses[msg.sender].block_210': '113', 'Iv': '0'}, 'other': {}, 'block': {'IH_blockhash': '0', 'IH_i': '115792089237316195423570985008687907853269984665640564039457584007913129639808'}}
+INFO:root:Case: Transaction-Ordering Dependency: 3
+INFO:root:Bug Abstract: 1933:SSTORE
+INFO:root:Bug Line: 134:9: Warning:         fees -= fees / 1000 * p
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '90883012834842051951627923194355038026724875498289941982807441380586901471232', 'Id_size_7': '4'}, 'state': {'Ia_store-8-admin_1686': '0', 'Ia_store-5-fees_1771': '0', 'Is': '0', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 1481:SLOAD
+INFO:root:Bug Line: 125:13: Warning:         if (fees == 0
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '54492887477429752395331738597869746026463878797728521385813820436386460729344', 'Id_size_7': '4'}, 'state': {'Is': '0', 'Iv': '0', 'Ia_store-8-admin_1395': '0'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 1555:SLOAD
+INFO:root:Bug Line: 126:9: Warning:         admin.send(fees)
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '54492887477429752395331738597869746026463878797728521385813820436386460729344', 'Id_size_7': '4'}, 'state': {'Is': '0', 'Ia_store-8-admin_1395': '0', 'Ia_store-5-fees_1480': '115792089237316195423570985008687907853269984665640564039457584007913129639935', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/theRun.sol:theRun.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/guess_the_random_number_fixed.sol:GuessTheRandomNumberChallenge:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.7%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/guess_the_random_number_fixed.sol:GuessTheRandomNumberChallenge.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/DosNumber.sol:DosNumber:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 64.5%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Denial-of-Service: 1
+INFO:root:Bug Abstract: 137: JUMPDEST  :dos caused by loop gas limit
+INFO:root:Bug Line: 6:5: Warning:     function insertNnumbers(uint value,uint numbers) public {
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '37371349574169700729375521456129861193975714289583626510463477453391503818752', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-1-array.length_417': '58583789838623083812075791056508134958920840439679116699177627218909228860297', 'Ia_store-0-numElements_422': '127', 'Iv': '0'}, 'other': {}, 'block': {}}	
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_1.sol:Overflow:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.5%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 1
+INFO:root:Bug Abstract: 229:ADD:Integer Overflow
+INFO:root:Bug Line: 7:9: Warning:         sellerBalance += value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '7243871574789772136012253590443265878251551907721201350222151581331179438080', 'Id_value': '31011707139343417289831185728629623161848798098422274988850594907005005075158', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-0-sellerBalance_228': '95965554340246284115330549670910525334005997184322698895647295956623114104108', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/integer_overflow_1.sol:Overflow.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_mapping_sym_1.sol:IntegerOverflowMappingSym1:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.0%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Underflow: 1
+INFO:root:Bug Abstract: 145:SUB:Integer Underflow
+INFO:root:Bug Line: 9:9: Warning:         map[k] -= v
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_14': '74865278854489121955827208448434387501402697487376128608206253049025866498048', 'Id_v': '1', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Iv': '0', 'Ia_store-some_var_1_139-map[k]_144': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/integer_overflow_mapping_sym_1.sol:IntegerOverflowMappingSym1.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/list_dos.sol:CrowdFundBad:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 98.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Denial-of-Service: 1
+INFO:root:Bug Abstract: 443:JUMPI:a function wait for call return bool to continue otherwise revert
+INFO:root:Bug Line: 9:9: Warning:         refundAddresses[i].transfer(refundAmount[refundAddresses[i]])
+INFO:root:Bug test case: {'callReturn': {'call_return_bool_431': '1'}, 'input': {'Id_0_15': '7983823167798788755527816726636585378198319273799909340927440032422544015360', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-0-refundAddresses.length_198': '7', 'Iv': '0'}, 'other': {'some_var_4_431': '0', 'some_var_7_431': '0'}, 'block': {}}
+INFO:root:Wrote results to ./tmp/list_dos.sol:CrowdFundBad.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/list_dos.sol:CrowdFundPull:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.5%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/list_dos.sol:CrowdFundPull.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/list_dos.sol:CrowdFundSafe:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 98.9%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/list_dos.sol:CrowdFundSafe.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/overflow_simple_add.sol:Overflow_Add:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.2%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 1
+INFO:root:Bug Abstract: 168:ADD:Integer Overflow
+INFO:root:Bug Line: 7:9: Warning:         balance += deposit
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_14': '7243871574789772136012253590443265878251551907721201350222151581331179438080', 'Id_deposit': '31011707139343417289831185728629623161848798098422274988850594907005005075158', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Iv': '0', 'Ia_store-0-balance_167': '95965554340246284115330549670910525334005997184322698895647295956623114104108'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/overflow_simple_add.sol:Overflow_Add.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract ree:IntegerOverflowMul:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.2%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 1
+INFO:root:Bug Abstract: 174:MUL:Integer Overflow
+INFO:root:Bug Line: 5:9: Warning:         count *= input
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_14': '74301149977583154961863820173841982574387150310566360623589186892333265715200', 'Id_input': '115792089237316195423570985008687907853269984665640564039457584007913129639934', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Iv': '0', 'Ia_store-0-count_173': '1'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/integer_overflow_mul.sol:IntegerOverflowMul.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_mapping_sym_1_fixed.sol:IntegerOverflowMappingSym1:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.3%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/integer_overflow_mapping_sym_1_fixed.sol:IntegerOverflowMappingSym1.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/modifier_reentrancy_fixed.sol:Bank:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 87.7%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/modifier_reentrancy_fixed.sol:Bank.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/modifier_reentrancy_fixed.sol:ModifierEntrancy:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 92.5%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/modifier_reentrancy_fixed.sol:ModifierEntrancy.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/overflow_simple_add_fixed.sol:Overflow_Add:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.3%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/overflow_simple_add_fixed.sol:Overflow_Add.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_minimal_fixed.sol:IntegerOverflowMinimal:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.3%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/integer_overflow_minimal_fixed.sol:IntegerOverflowMinimal.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_multitx_multifunc_feasible.sol:IntegerOverflowMultiTxMultiFuncFeasible:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.4%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Underflow: 1
+INFO:root:Bug Abstract: 218:SUB:Integer Underflow
+INFO:root:Bug Line: 24:9: Warning:         count -= input
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_14': '74301149977583154961863820173841982574387150310566360623589186892333265715200', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968', 'Id_input': '1'}, 'state': {'Ia_store-1-count_217': '0', 'Iv': '0', 'Ia_store-0-initialized_200': '1'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/integer_overflow_multitx_multifunc_feasible.sol:IntegerOverflowMultiTxMultiFuncFeasible.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/simple_dao_fixed.sol:SimpleDAO:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.7%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 1
+INFO:root:Bug Abstract: 444:ADD:Integer Overflow
+INFO:root:Bug Line: 11:5: Warning:     credit[to] += msg.value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '95703631876651362921899730171581200848657448942633538519183245325128171520', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-some_var_1_438-credit[to]_443': '91492205277818223598305671806691464936154241781020445597428313556755251077269', 'Iv': '34846434467914172531525653107028471019102075038664635484374676492083367403373'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/simple_dao_fixed.sol:SimpleDAO.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/auction.sol:DosAuction:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 89.9%
+INFO:root:Case: Denial-of-Service: 1
+INFO:root:Bug Abstract: 255: JUMPI : a function wait for call return bool to continue otherwise revert
+INFO:root:Bug Line: 16:7: Warning:       require(currentFrontrunner.send(currentBid))
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '11577589315719569134531689797804244115822131984567730048070185093847035412480', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-0-currentFrontrunner_103': '1', 'Ia_store-1-currentBid_83': '0', 'Iv': '1'}, 'other': {}, 'block': {}}
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/auction.sol:SecureAuction:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 94.0%
+INFO:root:Case: Denial-of-Service: 1
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/SpankChain.sol:HumanStandardToken:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 2
+INFO:root:Bug Abstract: 3077:ADD:Integer Overflow
+INFO:root:Bug Line: 70:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '76450787359836037641860180984291677749980919077056822294353438043884394381312', 'Id_36_1084': '51857843871619755915888139390102831028484687145916622802145877150017657504814', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_20_2916-balances[msg.sender]_2917': '51857843871619755915888139390102831028484687145916622802145877150017657504814', 'Ia_store-some_var_21_3071-balances[_to]_3076': '84256961908703823994029769963647978717960787081598885242017652820247022669822', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 2108:ADD:Integer Overflow
+INFO:root:Bug Line: 79:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '16156842317565293874272834530371880720966471053262404558597773956279093428224', 'Id_size_7': '4', 'Id_68_559': '66152552471921819792959688217949429965225278608262534790686705509822410054693'}, 'state': {'Ia_store-some_var_9_2023-allowed[_from][msg.sender]_2024': '66152552471921819792959688217949429965225278608262534790686705509822410054693', 'Ia_store-some_var_7_1888-balances[_from]_1889': '66152552471921819792959688217949429965225278608262534790686705509822410054693', 'Ia_store-some_var_10_2102-balances[_to]_2107': '68187960290546530589435313736293628068095191899175965270301641736474094019621', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/SpankChain.sol:HumanStandardToken.json.
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/SpankChain.sol:StandardToken:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.9%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Overflow: 2
+INFO:root:Bug Abstract: 1877:ADD:Integer Overflow
+INFO:root:Bug Line: 70:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '76450787359836037641860180984291677749980919077056822294353438043884394381312', 'Id__value': '51857843871619755915888139390102831028484687145916622802145877150017657504814', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_9_1871-balances[_to]_1876': '84256961908703823994029769963647978717960787081598885242017652820247022669822', 'Iv': '0', 'Ia_store-some_var_8_1716-balances[msg.sender]_1717': '51857843871619755915888139390102831028484687145916622802145877150017657504814'}, 'other': {}, 'block': {}}
+INFO:root:Bug Abstract: 1243:ADD:Integer Overflow
+INFO:root:Bug Line: 79:9: Warning:         balances[_to] += _value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '16156842317565293874272834530371880720966471053262404558597773956279093428224', 'Id__value': '66152552471921819792959688217949429965225278608262534790686705509822410054693', 'Id_size_7': '4'}, 'state': {'Ia_store-some_var_3_1023-balances[_from]_1024': '66152552471921819792959688217949429965225278608262534790686705509822410054693', 'Ia_store-some_var_6_1237-balances[_to]_1242': '68187960290546530589435313736293628068095191899175965270301641736474094019621', 'Ia_store-some_var_5_1158-allowed[_from][msg.sender]_1159': '66152552471921819792959688217949429965225278608262534790686705509822410054693', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/SpankChain.sol:StandardToken.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/dos_simple.sol:DosOneFunc:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 74.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Denial-of-Service: 1
+INFO:root:Bug Abstract: 70: JUMPDEST  :dos caused by loop gas limit
+INFO:root:Bug Line: 7:5: Warning:     function ifillArray() public returns (bool){
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '14534951633790525071343356804324808350990482873554936595293064450425351045120', 'Id_size_7': '4'}, 'state': {'Ia_store-0-listAddresses.length_127': '108583353213020387358871107260413974279180438517215739466740436663909176313308', 'Iv': '0'}, 'other': {'some_var_1_369': '7208736024295808064699865775652520559332840223838674960926650322604561268735'}, 'block': {}}
+
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_multitx_onefunc_feasible_fixed.sol:IntegerOverflowMultiTxOneFuncFeasible:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.4%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Wrote results to ./tmp/integer_overflow_multitx_onefunc_feasible_fixed.sol:IntegerOverflowMultiTxOneFuncFeasible.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_multitx_onefunc_infeasible.sol:IntegerOverflowMultiTxOneFuncInfeasible:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.2%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Underflow: 1
+INFO:root:Bug Abstract: 188:SUB:Integer Underflow
+INFO:root:Bug Line: 20:9: Warning:         count -= input
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_14': '74301149977583154961863820173841982574387150310566360623589186892333265715200', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968', 'Id_input': '1'}, 'state': {'Ia_store-1-count_187': '0', 'Ia_store-0-initialized_170': '1', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/integer_overflow_multitx_onefunc_infeasible.sol:IntegerOverflowMultiTxOneFuncInfeasible.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/old_blockhash_fixed.sol:PredictTheBlockHashChallenge:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.8%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Pseudorandom Generator: 1
+INFO:root:Bug Abstract: 578:CALL:pathcondition
+INFO:root:Bug Line: 35:15: Warning:               msg.sender.transfer(2 ether)
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '8075158506476908367434426355020631875308557969868903053028082540882601967616', 'Id_size_7': '4'}, 'state': {'Ia_store-1 + some_var_1_206-guesses[msg.sender].guess_512': '0', 'Ia_store-some_var_1_206-guesses[msg.sender].block_210': '113', 'Iv': '0'}, 'other': {}, 'block': {'IH_blockhash': '0', 'IH_i': '115792089237316195423570985008687907853269984665640564039457584007913129639808'}}
+INFO:root:Wrote results to ./tmp/old_blockhash_fixed.sol:PredictTheBlockHashChallenge.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/guess_the_random_number.sol:GuessTheRandomNumberChallenge:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.6%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Pseudorandom Generator: 1
+INFO:root:Bug Abstract: 276: SSTORE : store value
+INFO:root:Bug Line: 14:9: Warning:         answer = uint8(keccak256(block.blockhash(block.number - 1), now))
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '7603452182018307169228647245529687686049425254251256574178104357940579270656', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Iv': '1000000000000000000'}, 'other': {}, 'block': {}}
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/integer_overflow_multitx_onefunc_feasible.sol:IntegerOverflowMultiTxOneFuncFeasible:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.3%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Integer Underflow: 1
+INFO:root:Bug Abstract: 196:SUB:Integer Underflow
+INFO:root:Bug Line: 21:9: Warning:         count -= input
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_14': '74301149977583154961863820173841982574387150310566360623589186892333265715200', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968', 'Id_input': '1'}, 'state': {'Ia_store-0-initialized_170': '1', 'Ia_store-1-count_195': '0', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/integer_overflow_multitx_onefunc_feasible.sol:IntegerOverflowMultiTxOneFuncFeasible.json.
+WARNING:root:You are using evm version 1.9.9. The supported version is 1.8.27
+WARNING:root:You are using solc version 0.4.26, The latest supported version is 0.4.25
+INFO:root:contract /Users/liyue/Documents/smartContract/cases/simple_dao.sol:SimpleDAO:
+INFO:root:	++++++++++ Contract Analysis Results +++++++++++
+INFO:root:	  EVM Code Coverage: 			 99.7%
+INFO:root:	++++++++++ Contract Analysis Complete +++++++++++
+INFO:root:Case: Reentrancy: 1
+INFO:root:Bug Abstract: 565:CALL:recipient direct taint
+INFO:root:Bug Line: 16:15: Warning:       require(msg.sender.call.value(amount)()
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '20853193852723734048814770637610870652489083209607696777694672748161462697984', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968', 'Id_amount': '1'}, 'state': {'Ia_store-some_var_2_517-credit[msg.sender]_518': '57896044618658097711785492504343953926634992332820282019728792003956564819968', 'Iv': '0'}, 'other': {}, 'block': {}}
+INFO:root:Case: Integer Overflow: 1
+INFO:root:Bug Abstract: 444:ADD:Integer Overflow
+INFO:root:Bug Line: 11:5: Warning:     credit[to] += msg.value
+INFO:root:Bug test case: {'callReturn': {}, 'input': {'Id_0_15': '95703631876651362921899730171581200848657448942633538519183245325128171520', 'Id_size_7': '57896044618658097711785492504343953926634992332820282019728792003956564819968'}, 'state': {'Ia_store-some_var_1_438-credit[to]_443': '91492205277818223598305671806691464936154241781020445597428313556755251077269', 'Iv': '34846434467914172531525653107028471019102075038664635484374676492083367403373'}, 'other': {}, 'block': {}}
+INFO:root:Wrote results to ./tmp/simple_dao.sol:SimpleDAO.json.
