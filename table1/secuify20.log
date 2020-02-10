@@ -1853,7 +1853,8 @@ Processing contract: cases//dos_number.sol:DosNumber
     |
   > |contract DosNumber {
     |
-    |    uint numElements = 0;
+    |    uint numElements = 0;overflow_mapping_sym_1_fixed
+    
   at cases//dos_number.sol(3)
 
 [31mViolation[0m for UnrestrictedWrite in contract 'DosNumber':
